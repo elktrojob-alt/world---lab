@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>🌍 الأمل الأخير للأرض — مختبر العالم</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1b2a;--panel2:#12253a;--line:#24445e;--text:#edf7ff;--muted:#91a8bb;--blue:#38bdf8;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--purple:#a78bfa;--cyan:#22d3ee}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#12395a 0,#07111f 45%),#07111f;color:var(--text);font-family:Tahoma,Arial,sans-serif;padding:10px;min-height:100vh;overflow-x:hidden}
+button,select,input,textarea{font-family:inherit}
+button{cursor:pointer}
+.app{max-width:1450px;margin:auto;padding:15px}
+header{background:linear-gradient(135deg,#0c2035,#102d45);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;box-shadow:0 15px 40px #0008;position:relative;overflow:hidden}
+header h1{margin:0 0 8px;color:var(--blue);font-size:clamp(18px,4vw,30px);line-height:1.4}
+header h1 .main-title{display:block;font-size:1.15em;background:linear-gradient(135deg,#38bdf8,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+header h1 .sub-title{display:block;font-size:0.75em;color:var(--cyan);margin-top:5px;opacity:.9}
+header p{color:var(--muted);margin:5px 0;line-height:1.8}
+.badge{display:inline-block;background:#0a3a5c;color:var(--cyan);padding:4px 14px;border-radius:20px;font-size:11px;margin-top:5px;border:1px solid var(--cyan)}
+.method-badge{display:inline-block;background:linear-gradient(135deg,#116331,#07596a);color:white;padding:4px 14px;border-radius:20px;font-size:11px;margin-top:8px;border:1px solid var(--green);font-weight:bold}
+.lang-switch{position:absolute;top:15px;left:15px;display:flex;gap:5px;z-index:2}
+.lang-btn{background:#0a3a5c;border:1px solid var(--line);color:white;padding:5px 10px;border-radius:6px;font-size:11px;font-weight:bold}
+.lang-menu{position:absolute;top:100%;left:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;min-width:150px;box-shadow:0 10px 30px #000a;z-index:1000;display:none;margin-top:5px}
+.lang-menu.show{display:block}
+.lang-menu-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:.2s;font-size:13px;color:var(--text)}
+.lang-menu-item:hover{background:var(--panel2)}
+.lang-menu-item.active{background:linear-gradient(135deg,#116331,#0a5c3a);color:white}
+.world-eyes-stage{position:relative;width:100%;height:clamp(200px,35vw,300px);margin:15px auto;display:flex;align-items:center;justify-content:center;border-radius:20px;background:radial-gradient(circle at 50% 50%,#0a1f33 0%,#020617 70%);border:1px solid var(--line);box-shadow:inset 0 0 60px #000a,0 15px 40px #0008;overflow:hidden}
+.eyes-scene{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:clamp(15px,4vw,50px)}
+.eye{position:relative;width:clamp(80px,16vw,140px);height:clamp(80px,16vw,140px);border-radius:50%;background:radial-gradient(circle at 50% 50%,#0a2238 0%,#020617 100%);border:3px solid var(--blue);box-shadow:0 0 30px #38bdf844,inset 0 0 40px #38bdf822;display:flex;align-items:center;justify-content:center;animation:eyeBlink 5s infinite;overflow:hidden}
+.eye .iris{position:absolute;width:60%;height:60%;border-radius:50%;background:radial-gradient(circle at 50% 50%,#0ea5e9 0%,#0284c7 40%,#075985 70%);box-shadow:inset 0 0 20px #000c,0 0 20px #38bdf866;display:flex;align-items:center;justify-content:center;transition:transform .15s ease-out;will-change:transform}
+.eye .iris::before{content:'';position:absolute;width:55%;height:55%;border-radius:50%;background:#000}
+.eye .iris::after{content:'';position:absolute;width:22%;height:22%;border-radius:50%;background:#fff;top:22%;left:22%;filter:blur(0.5px)}
+.eye .earth-pupil{position:absolute;width:38%;height:38%;border-radius:50%;background:radial-gradient(circle at 40% 40%,#22c55e 0%,#16a34a 30%,#15803d 100%);box-shadow:inset 0 0 10px #000a,0 0 15px #22c55e88;z-index:2}
+.eye.broken{border-color:var(--red);animation:shake 0.6s infinite}
+.eye.broken .iris{background:radial-gradient(circle at 50% 50%,#ef4444 0%,#991b1b 100%)}
+.eye.thriving{border-color:var(--green);box-shadow:0 0 30px #22c55e88}
+.eye.thriving .iris{background:radial-gradient(circle at 50% 50%,#22c55e 0%,#0ea5e9 70%)}
+@keyframes eyeBlink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(0.1)}98%{transform:scaleY(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.world-eyes-caption{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:12px;color:var(--muted);z-index:5}
+.world-eyes-caption b{color:var(--cyan)}
+.warning{position:sticky;top:0;z-index:50;margin:12px 0;padding:12px 16px;border-radius:12px;border:2px solid var(--green);background:#09251a;transition:.3s;font-weight:bold;text-align:center}
+.warning.danger{border-color:var(--red);background:#351014;animation:pulse 1.6s infinite}
+.warning.warning-state{border-color:var(--yellow);background:#33260b}
+@keyframes pulse{50%{box-shadow:0 0 25px #ef444455}}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;justify-content:center}
+.btn{border:1px solid var(--line);background:#12304a;color:white;padding:10px 14px;border-radius:9px;font-weight:bold;transition:.2s;font-size:13px}
+.btn:hover{transform:translateY(-1px);background:#174363}
+.btn.green{background:#116331}.btn.red{background:#751d26}.btn.purple{background:#49307b}.btn.cyan{background:#07596a}.btn.gold{background:#78560a}.btn.gray{background:#2a3a4a}.btn.pink{background:#7a1f4a}.btn.orange{background:#9a3412}
+@keyframes launchPulse{0%,100%{box-shadow:0 0 0 0 #22c55e88}50%{box-shadow:0 0 0 10px #22c55e00}}
+.tabs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:12px 0}
+.tab{padding:12px 4px;background:#0c1c2c;border:1px solid var(--line);color:var(--muted);border-radius:10px;font-weight:bold;text-align:center;cursor:pointer;transition:.3s;font-size:10px}
+.tab:hover{background:#12304a;color:white}
+.tab.active{color:white;background:#123e5d;border-color:var(--blue)}
+@media(max-width:1000px){.tabs{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.tabs{grid-template-columns:repeat(2,1fr)}}
+.view{display:none}.view.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.card{background:linear-gradient(145deg,#0d1d2d,#0a1725);border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:0 8px 25px #0004;margin-bottom:12px}
+.span-12{grid-column:span 12}.span-6{grid-column:span 6}
+@media(max-width:900px){.span-6{grid-column:span 12}}
+h3{margin-top:0;color:var(--cyan)}
+h4{color:var(--blue);margin:10px 0 5px;font-size:14px}
+label{display:block;margin:10px 0 5px;color:var(--muted);font-size:13px}
+select,input[type=range],input[type=text],textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #31516a;background:#081522;color:white}
+.range-row{display:grid;grid-template-columns:1fr 80px;gap:10px;align-items:center}
+.number{text-align:center;font-weight:bold;color:var(--blue);padding:8px;background:#07111f;border-radius:7px;font-size:13px}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.metric{padding:12px;border-radius:10px;background:#102437;border-right:4px solid var(--blue)}
+.metric.good{border-color:var(--green)}.metric.warn{border-color:var(--yellow)}.metric.bad{border-color:var(--red)}
+.metric small{display:block;color:var(--muted);margin-bottom:5px;font-size:11px}
+.metric strong{font-size:16px}
+.steps-box{max-height:250px;overflow-y:auto;background:#081522;padding:10px;border-radius:8px;border:1px solid var(--line)}
+.step-item{padding:8px;margin:6px 0;background:#12253a;border-radius:6px;font-size:13px;border-right:4px solid var(--blue);line-height:1.5}
+.step-item.cause{background:#0c2035;border-right-color:var(--cyan)}
+.step-item.active{background:#351014;border-right-color:var(--red)}
+.step-item.active-green{background:#09251a;border-right-color:var(--green)}
+.chat-box{background:#081522;border:1px solid var(--line);border-radius:10px;padding:12px;height:280px;overflow-y:auto;font-size:13px;margin-bottom:10px;line-height:1.6}
+.ai-msg{background:#12253a;padding:10px;border-radius:8px;margin-bottom:8px;border-right:3px solid var(--blue)}
+.user-msg{background:#0369a1;color:white;padding:10px;border-radius:8px;margin-bottom:8px;text-align:left}
+.chat-input-row{display:flex;gap:8px}
+.chat-input-row input{flex:1}
+.google-link{display:inline-block;margin-top:8px;background:#2563eb;color:white;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:bold}
+.compare-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+.compare-table th,.compare-table td{padding:8px;text-align:center;border:1px solid var(--line);vertical-align:middle}
+.compare-table th{background:#123e5d;color:white;font-size:11px;line-height:1.4}
+.compare-table td{background:#0a1725}
+.compare-table .good{color:var(--green);font-weight:bold}
+.compare-table .bad{color:var(--red);font-weight:bold}
+.compare-table .warn{color:var(--yellow);font-weight:bold}
+.ref-item{padding:8px;margin:5px 0;background:#081522;border-radius:6px;font-size:12px;border-right:3px solid var(--cyan);line-height:1.5}
+.ref-item a{color:var(--blue);text-decoration:none}
+.achievements{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.ach{padding:10px;background:#0a1725;border:1px solid var(--line);border-radius:8px;text-align:center;font-size:12px;opacity:.4;transition:.3s}
+.ach.unlocked{opacity:1;border-color:var(--green);background:linear-gradient(145deg,#09251a,#0a1725);box-shadow:0 0 15px #22c55e44}
+.ach-icon{font-size:24px;display:block;margin-bottom:5px}
+.modal-overlay{display:none;position:fixed;inset:0;background:#000a;z-index:100;align-items:center;justify-content:center;padding:15px;overflow-y:auto}
+.modal-overlay.show{display:flex}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:14px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;padding:20px}
+.modal-close{float:left;background:var(--red);border:none;color:white;padding:5px 12px;border-radius:6px;font-weight:bold}
+.chart-container{background:#081522;border-radius:8px;padding:10px;border:1px solid var(--line)}
+canvas{max-width:100%}
+.footer{text-align:center;margin-top:25px;padding:15px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6}
+.notification{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#116331;color:white;padding:12px 20px;border-radius:10px;z-index:200;font-weight:bold;box-shadow:0 10px 30px #000a;opacity:0;transition:.3s;pointer-events:none;max-width:90%}
+.notification.show{opacity:1;bottom:30px}
+.notification.error{background:#751d26}
+.scientific-notice{background:linear-gradient(145deg,#09251a,#0a1725);border:1px solid var(--green);border-right:4px solid var(--green);padding:12px;border-radius:8px;font-size:12px;color:#bbf7d0;margin-bottom:12px;line-height:1.7}
+.game-scenario{background:linear-gradient(145deg,#0a2a3d,#081522);border:2px solid var(--blue);border-radius:14px;padding:20px;margin-bottom:15px;position:relative;overflow:hidden;transition:all .6s ease}
+.game-choices{display:grid;gap:10px;margin-top:15px}
+.game-choice{background:#102437;border:1px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;transition:all .3s;text-align:right;position:relative;overflow:hidden}
+.game-choice:hover{background:#174363;border-color:var(--blue);transform:translateX(-4px)}
+.game-choice.selected{background:#116331;border-color:var(--green);box-shadow:0 0 15px #22c55e44}
+.game-choice-title{font-weight:bold;color:var(--cyan);margin-bottom:6px}
+.game-choice-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.game-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:15px 0;padding:12px;background:#081522;border-radius:10px}
+.game-stat{text-align:center}
+.game-stat-label{font-size:10px;color:var(--muted)}
+.game-stat-value{font-size:18px;font-weight:bold;color:var(--blue);margin-top:3px;transition:all .3s}
+.game-log{max-height:200px;overflow-y:auto;background:#081522;border-radius:8px;padding:10px;font-size:12px;line-height:1.7;border:1px solid var(--line)}
+.game-log-entry{padding:6px 10px;border-radius:6px;margin-bottom:4px}
+.game-log-entry.positive{color:#22c55e;background:linear-gradient(90deg,#09251a,transparent);border-right:3px solid #22c55e}
+.game-log-entry.negative{color:#ef4444;background:linear-gradient(90deg,#351014,transparent);border-right:3px solid #ef4444}
+.game-log-entry.neutral{color:#91a8bb;background:linear-gradient(90deg,#33260b,transparent);border-right:3px solid #f59e0b}
+.game-over-banner{background:linear-gradient(135deg,#7a1f4a,#49307b);border-radius:14px;padding:20px;text-align:center;margin:15px 0}
+.game-over-banner h2{color:white;margin:0 0 10px}
+.game-over-banner.win{background:linear-gradient(135deg,#116331,#07596a)}
+.share-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.share-btn{padding:8px 14px;border-radius:8px;border:none;font-weight:bold;color:white;cursor:pointer;font-size:12px}
+.share-native{background:#2563eb}.share-twitter{background:#1da1f2}.share-facebook{background:#1877f2}.share-whatsapp{background:#25d366}.share-copy{background:#5a5a5a}
+.world-map-container{position:relative;background:radial-gradient(circle at center,#0a2238,#020617);border-radius:14px;padding:15px;border:1px solid var(--line);overflow:hidden}
+.world-map-container svg{width:100%;height:auto;max-height:500px;display:block}
+.country-path{fill:#1e4a6e;stroke:#38bdf8;stroke-width:0.8;cursor:pointer;transition:all .3s}
+.country-path:hover{fill:#38bdf8}
+.country-path.selected{fill:#22c55e;stroke:#fff}
+.country-path.safe{fill:#1e7d3e}.country-path.risk{fill:#a16207}.country-path.danger{fill:#991b1b}
+.map-tooltip{position:absolute;background:#0d1b2a;border:1px solid var(--cyan);padding:10px 14px;border-radius:8px;font-size:12px;pointer-events:none;display:none;z-index:10}
+.map-tooltip.show{display:block}
+.country-panel{background:linear-gradient(145deg,#0a2a3d,#081522);border:2px solid var(--cyan);border-radius:14px;padding:15px;display:none}
+.country-panel.show{display:block}
+.country-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:12px 0}
+.country-stat-box{background:#081522;padding:10px;border-radius:8px;border-right:3px solid var(--blue);text-align:center}
+.country-stat-label{font-size:10px;color:var(--muted);margin-bottom:4px}
+.country-stat-value{font-size:14px;font-weight:bold}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:15px}
+.stat-box{background:linear-gradient(145deg,#0a2a3d,#081522);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;border-top:3px solid var(--blue)}
+.stat-box.gold{border-top-color:var(--yellow)}.stat-box.green{border-top-color:var(--green)}.stat-box.red{border-top-color:var(--red)}.stat-box.purple{border-top-color:var(--purple)}
+.stat-icon{font-size:26px;margin-bottom:5px}
+.stat-value{font-size:22px;font-weight:bold;color:var(--cyan)}
+.stat-label{font-size:11px;color:var(--muted);margin-top:3px}
+.challenges-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.challenge-card{background:linear-gradient(145deg,#0a2a3d,#081522);border:1px solid var(--line);border-radius:12px;padding:15px;border-top:4px solid var(--blue)}
+.challenge-card.completed{border-top-color:var(--green);background:linear-gradient(145deg,#09251a,#0a1725)}
+.challenge-header{display:flex;justify-content:space-between;margin-bottom:8px}
+.challenge-title{font-weight:bold;color:var(--cyan);font-size:14px}
+.challenge-reward{font-size:11px;background:#78560a;color:#fde68a;padding:3px 8px;border-radius:6px;font-weight:bold}
+.challenge-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.challenge-progress{height:6px;background:#081522;border-radius:3px;overflow:hidden;margin-top:8px}
+.challenge-progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.leaderboard-table{width:100%;border-collapse:collapse;font-size:13px}
+.leaderboard-table th,.leaderboard-table td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.leaderboard-table th{background:#123e5d;color:white;font-size:12px}
+.leaderboard-rank{font-size:18px;font-weight:bold;width:50px}
+.leaderboard-score{font-size:16px;font-weight:bold;color:var(--cyan)}
+.leaderboard-you{background:linear-gradient(90deg,#0a3a5c,#081522);border:1px solid var(--cyan)}
+.player-name-input{display:flex;gap:8px;margin-bottom:12px}
+.player-name-input input{flex:1}
+.trophy-display{text-align:center;font-size:14px;padding:10px;background:#081522;border-radius:8px;border:1px solid var(--line);margin-bottom:10px}
+.trophy-display .trophy{font-size:32px;display:block;margin-bottom:5px}
+.qr-container{display:flex;flex-direction:column;align-items:center;padding:20px;background:#081522;border-radius:12px;margin:15px 0;border:1px solid var(--line)}
+.qr-canvas-wrapper{background:white;padding:15px;border-radius:10px;box-shadow:0 0 30px #22d3ee44;margin-bottom:15px}
+.qr-url{font-size:11px;color:var(--muted);word-break:break-all;text-align:center;padding:8px;background:#0a1725;border-radius:6px;border:1px dashed var(--line);margin-top:10px}
+.qr-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.android-install-highlight{background:linear-gradient(145deg,#0a3a5c,#081522);border:2px solid var(--green);border-radius:12px;padding:15px;margin:12px 0}
+.android-install-highlight h4{color:var(--green);margin:0 0 10px}
+.android-install-highlight ol{margin:8px 0;padding-right:20px;font-size:13px;line-height:2;color:#e2e8f0}
+.android-install-highlight .highlight{background:#22c55e33;padding:2px 6px;border-radius:4px;color:#bbf7d0;font-weight:bold}
+.install-method-big{display:block;width:100%;padding:18px;background:linear-gradient(135deg,#116331,#0a7c3e);color:white;border:2px solid #22c55e;border-radius:14px;font-size:16px;font-weight:bold;cursor:pointer;margin:12px 0;box-shadow:0 8px 30px #22c55e44}
+.cinematic-overlay{position:fixed;inset:0;background:#000;z-index:500;display:none;align-items:center;justify-content:center}
+.cinematic-overlay.show{display:flex}
+.cinematic-scene{position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.cinematic-stars{position:absolute;inset:0;background:radial-gradient(1px 1px at 20% 30%,white,transparent),radial-gradient(1px 1px at 60% 70%,white,transparent),radial-gradient(1px 1px at 40% 50%,white,transparent),radial-gradient(1px 1px at 80% 20%,white,transparent);animation:starTwinkle 4s infinite}
+@keyframes starTwinkle{0%,100%{opacity:.6}50%{opacity:1}}
+.cinematic-earth{position:relative;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#38bdf8,#0ea5e9 40%,#0284c7 70%);box-shadow:0 0 60px #38bdf8,0 0 120px #0ea5e966;animation:earthRotate 8s linear infinite;z-index:2}
+.cinematic-earth.safe{background:radial-gradient(circle at 35% 35%,#4ade80,#22c55e 40%,#16a34a 70%);box-shadow:0 0 80px #22c55e}
+.cinematic-earth.danger{background:radial-gradient(circle at 35% 35%,#f87171,#dc2626 40%,#991b1b 70%);box-shadow:0 0 80px #ef4444}
+@keyframes earthRotate{to{transform:rotate(360deg)}}
+.cinematic-text{margin-top:40px;font-size:clamp(24px,5vw,42px);font-weight:900;text-align:center;z-index:2;font-family:'Arial Black',Tahoma}
+.cinematic-text.win{color:#4ade80;text-shadow:0 0 40px #22c55e}
+.cinematic-text.lose{color:#f87171;text-shadow:0 0 40px #ef4444}
+.cinematic-score{margin-top:20px;font-size:clamp(48px,10vw,80px);font-weight:900;color:#fbbf24;text-shadow:0 0 40px #fbbf24;z-index:2}
+.cinematic-grade{margin-top:15px;font-size:180px;font-weight:900;z-index:2;text-shadow:0 0 60px currentColor}
+.cinematic-skip{position:absolute;top:20px;right:20px;background:#fff2;border:1px solid #fff4;color:white;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:12px;z-index:5}
+.certificate-container{background:linear-gradient(145deg,#fef9c3,#fef3c7);border:12px double #92400e;border-radius:20px;padding:40px;max-width:800px;margin:auto;color:#451a03;font-family:'Times New Roman',Tahoma,serif;position:relative}
+.certificate-container::before{content:'';position:absolute;inset:15px;border:2px solid #d97706;border-radius:12px;pointer-events:none}
+.certificate-header{text-align:center;border-bottom:3px solid #92400e;padding-bottom:20px;margin-bottom:25px}
+.certificate-logo{font-size:60px;margin-bottom:10px}
+.certificate-title{font-size:32px;color:#92400e;margin:0;font-weight:bold;letter-spacing:3px}
+.certificate-subtitle{font-size:16px;color:#a16207;margin:10px 0 0;letter-spacing:2px}
+.certificate-body{text-align:center;padding:20px 0}
+.certificate-label{font-size:14px;color:#78350f;margin:15px 0 8px;letter-spacing:2px}
+.certificate-name{font-size:36px;color:#451a03;font-weight:bold;margin:10px 0 25px;padding:15px 0;border-bottom:2px dashed #d97706;border-top:2px dashed #d97706;font-style:italic}
+.certificate-grade-box{display:inline-block;margin:20px auto;padding:20px 40px;background:linear-gradient(135deg,#fbbf24,#f59e0b);border:4px solid #92400e;border-radius:20px}
+.certificate-grade-letter{font-size:100px;font-weight:900;color:white;line-height:1;text-shadow:4px 4px 0 #78350f}
+.certificate-grade-label{font-size:20px;color:white;margin-top:8px;letter-spacing:4px}
+.certificate-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:25px 0;padding:15px;background:#fffbeb;border-radius:10px;border:2px solid #fbbf24}
+.certificate-stat{text-align:center;font-size:12px;color:#78350f}
+.certificate-stat b{display:block;font-size:24px;color:#92400e;margin-top:5px}
+.certificate-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:30px;padding-top:25px;border-top:3px solid #92400e}
+.certificate-signature-line{border-top:2px solid #92400e;padding-top:8px;font-size:14px;color:#78350f;font-style:italic}
+.certificate-qr{width:120px;height:120px;border:3px solid #92400e;border-radius:8px;padding:5px;background:white}
+.social-qr-preview{background:linear-gradient(135deg,#0a2a3d,#07111f);border:3px solid var(--cyan);border-radius:20px;padding:30px;text-align:center;box-shadow:0 20px 60px #0008;max-width:500px;margin:15px auto}
+.social-qr-title{color:var(--cyan);font-size:22px;font-weight:bold;margin-bottom:5px}
+.social-qr-subtitle{color:var(--muted);font-size:13px;margin-bottom:20px}
+.social-qr-code-box{background:white;padding:20px;border-radius:16px;display:inline-block;border:6px solid #22c55e}
+.social-qr-code-box img{width:240px;height:240px;display:block}
+.social-qr-url{color:#cbd5e1;font-size:12px;margin-top:15px;word-break:break-all;background:#081522;padding:8px 12px;border-radius:8px;font-family:monospace}
+.social-qr-badge{display:inline-block;padding:6px 14px;background:linear-gradient(135deg,#116331,#0a7c3e);border-radius:20px;color:white;font-size:11px;font-weight:bold;margin-top:15px;letter-spacing:1px}
+.grade-display{display:flex;align-items:center;justify-content:center;gap:20px;padding:25px;background:linear-gradient(145deg,#0a1725,#081522);border-radius:16px;margin:15px 0;border:2px solid var(--line)}
+.grade-letter{font-size:120px;font-weight:900;line-height:1;text-shadow:0 0 40px currentColor;font-family:'Arial Black',Arial}
+.grade-letter.plus{color:#22c55e}.grade-letter.a{color:#4ade80}.grade-letter.b{color:#fbbf24}.grade-letter.c{color:#f97316}.grade-letter.d{color:#ef4444}.grade-letter.f{color:#7f1d1d}
+.duo-mode-banner{background:linear-gradient(135deg,#7c3aed,#6b21a8);padding:15px;border-radius:12px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:center;color:white;border:2px solid #a78bfa}
+.duo-timer{font-size:24px;font-weight:bold;font-family:monospace;background:#0006;padding:5px 15px;border-radius:8px}
+.duo-player-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:20px;font-weight:bold;font-size:14px}
+.duo-player-badge.p1{background:linear-gradient(135deg,#0ea5e9,#0284c7)}
+.duo-player-badge.p2{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.duo-choices{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:700px){.duo-choices{grid-template-columns:1fr}}
+.duo-choice-p1{border:3px solid #0ea5e9 !important}
+.duo-choice-p2{border:3px solid #f59e0b !important}
+</style>
+</head>
+<body>
+<div class="app">
+    <header>
+        <div class="lang-switch" style="position:relative;">
+            <button class="lang-btn active" onclick="toggleLangMenu(event)">
+                <span id="currentLangFlag">🇸🇦</span> <span id="currentLangName">عربي</span> ▼
+            </button>
+            <div class="lang-menu" id="langMenu">
+                <div class="lang-menu-item active" onclick="setLanguage('ar')"><span>🇸🇦</span><span>العربية</span></div>
+                <div class="lang-menu-item" onclick="setLanguage('en')"><span>🇬🇧</span><span>English</span></div>
+            </div>
+        </div>
+        <h1 id="headerTitle">
+            <span class="main-title">🌍 الأمل الأخير للأرض</span>
+            <span class="sub-title">🔬 مختبر العالم — World Lab</span>
+        </h1>
+        <p id="headerSubtitle">محاكاة علمية دقيقة لتتبع مسارات الأزمات البيئية والمجتمعية.</p>
+        <div class="badge">v16.0</div>
+        <div class="method-badge">🔬 منهج علمي دقيق</div>
+        <div style="font-size:12px;color:var(--blue);margin-top:8px;" id="headerCredits">إعداد وتصميم: جابر إسكندر سلامة</div>
+    </header>
+
+    <div class="world-eyes-stage">
+        <div class="eyes-scene">
+            <div class="eye" id="leftEye"><div class="iris" id="leftIris"><div class="earth-pupil"></div></div></div>
+            <div class="eye" id="rightEye"><div class="iris" id="rightIris"><div class="earth-pupil"></div></div></div>
+        </div>
+        <div class="world-eyes-caption"><b>👁️ عينا الأرض</b> — تتبعان مؤشر حركتك</div>
+    </div>
+
+    <div id="warningBox" class="warning">🌱 السنة 1: بدء التتبع السنوي.</div>
+
+    <div class="toolbar">
+        <button class="btn green" onclick="switchTab(0)">🎛️ التحكم</button>
+        <button class="btn purple" onclick="switchTab(1)">📊 المؤشرات</button>
+        <button class="btn cyan" onclick="switchTab(2)">💬 المستشار</button>
+        <button class="btn gold" onclick="switchTab(3)">📈 المقارنة</button>
+        <button class="btn pink" onclick="switchTab(4)">🎮 اللعب</button>
+        <button class="btn" onclick="switchTab(5)" style="background:#0a5c3a;">🗺️ الخريطة</button>
+        <button class="btn orange" onclick="switchTab(6)">🏆 التحديات</button>
+    </div>
+
+    <div class="toolbar">
+        <button class="btn green" onclick="launchApp()" style="background:#0a7c3e;animation:launchPulse 2s infinite;">▶️ تشغيل</button>
+        <button class="btn purple" onclick="openInstallGuide()">📲 تثبيت التطبيق</button>
+        <button class="btn cyan" onclick="showQRCode()">📱 QR</button>
+        <button class="btn cyan" onclick="showSocialQR()">🌐 QR سوشيال</button>
+        <button class="btn" onclick="downloadApp()">📥 تحميل</button>
+        <button class="btn cyan" onclick="requestNotificationPermission()">🔔</button>
+        <button class="btn purple" onclick="openAISettings()">🤖 AI</button>
+        <button class="btn" onclick="openAdminPanel()" style="background:linear-gradient(135deg,#78560a,#fbbf24);color:#000;">👑 الإدارة</button>
+        <button class="btn gray" onclick="if(confirm('إعادة تعيين؟')){localStorage.clear();location.reload();}">🔄</button>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab(0)">التحكم</div>
+        <div class="tab" onclick="switchTab(1)">المراقبة</div>
+        <div class="tab" onclick="switchTab(2)">المستشار</div>
+        <div class="tab" onclick="switchTab(3)">المقارنة</div>
+        <div class="tab" onclick="switchTab(4)">اللعب</div>
+        <div class="tab" onclick="switchTab(5)">🗺️ العالم</div>
+        <div class="tab" onclick="switchTab(6)">🏆 التحديات</div>
+<div class="view active" id="view0">
+        <div class="grid">
+            <div class="card span-6">
+                <h3>🎛️ إعدادات المسارات</h3>
+                <label>نوع المستوى:</label>
+                <select id="levelTypeSelect" onchange="runSimulation()">
+                    <option value="individual">👤 مسار فردي</option>
+                    <option value="social" selected>🏛️ مسار اجتماعي / سياسي</option>
+                </select>
+                <label>النسق الأيديولوجي:</label>
+                <select id="pathwaySelect" onchange="runSimulation()">
+                    <option value="1">1. المجتمع الراديكالي</option>
+                    <option value="2">2. المجتمع الرأسمالي</option>
+                    <option value="3">3. المجتمع العلماني البحت</option>
+                    <option value="4" selected>4. المجتمع الديني المزدهر</option>
+                    <option value="5">5. المجتمع الديني المتحفظ</option>
+                </select>
+                <label>المؤشر الزمني:</label>
+                <div class="range-row">
+                    <input type="range" id="slider" min="1" max="50" value="1" oninput="onSliderMove()" onchange="onSliderCommit()">
+                    <div class="number" id="scoreVal">1 سنة</div>
+                </div>
+                <div style="margin-top:15px;font-size:13px;background:#081522;padding:10px;border-radius:8px;">
+                    <b>النسق:</b> <span id="currentStatusDisplay" style="color:var(--blue)">-</span><br>
+                    <b>المسار:</b> <span id="currentLevelDisplay" style="color:var(--green)">-</span>
+                </div>
+            </div>
+            <div class="card span-6">
+                <h3>🌍 حالة الكوكب</h3>
+                <div style="text-align:center;padding:30px;">
+                    <div style="font-size:70px;margin-bottom:15px;" id="earthEmoji">🌍</div>
+                    <b id="earthStateText" style="color:var(--cyan);font-size:16px;">جارِ التحليل...</b>
+                    <div style="margin-top:15px;font-size:12px;color:var(--muted);" id="earthDetails"></div>
+                </div>
+            </div>
+            <div class="card span-12">
+                <h3>📌 السلاسل السببية</h3>
+                <div class="steps-box" id="stepsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" id="view1">
+        <div class="card span-12">
+            <h3>📊 لوحة المؤشرات</h3>
+            <div class="metric-grid">
+                <div class="metric good" id="cardCrime"><small>📉 الجرائم</small><strong id="valCrime">-</strong></div>
+                <div class="metric good" id="cardTrees"><small>🌳 الأشجار</small><strong id="valTrees">-</strong></div>
+                <div class="metric good" id="cardAnimals"><small>🐾 الحيوانات</small><strong id="valAnimals">-</strong></div>
+                <div class="metric good" id="cardResources"><small>🧱 الموارد</small><strong id="valResources">-</strong></div>
+                <div class="metric good" id="cardTemp"><small>🌡️ الحرارة</small><strong id="valTemp">-</strong></div>
+                <div class="metric good" id="cardWater"><small>💧 المياه</small><strong id="valWater">-</strong></div>
+            </div>
+        </div>
+        <div class="card span-12">
+            <h3>📈 المخطط</h3>
+            <div class="chart-container"><canvas id="chartCanvas" width="800" height="280"></canvas></div>
+        </div>
+    </div>
+
+    <div class="view" id="view2">
+        <div class="grid">
+            <div class="card span-6">
+                <h3>🧠 الاستراتيجيات</h3>
+                <div id="aiStrategyOutput" style="font-size:13px;background:#081522;padding:12px;border-radius:8px;border:1px dashed var(--green);">جارِ التحليل...</div>
+            </div>
+            <div class="card span-6">
+                <h3>💬 المستشار الذكي</h3>
+                <div class="chat-box" id="aiChatBox"><div class="ai-msg">مرحباً! 🔬 اسأل عن أي دولة أو موضوع.</div></div>
+                <div class="chat-input-row">
+                    <input type="text" id="userInput" placeholder="اسأل..." onkeydown="if(event.key==='Enter')askAI()">
+                    <button class="btn cyan" onclick="askAI()">إرسال</button>
+                </div>
+            </div>
+            <div class="card span-12">
+                <h3>🔬 المنهجية العلمية</h3>
+                <div class="scientific-notice"><b>🔬 منهج علمي:</b> بيانات من IPCC, UNEP, WHO, IUCN مع نماذج رياضية.</div>
+                <h3 style="margin-top:15px;">📚 المراجع</h3>
+                <div id="referencesList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" id="view3">
+        <div class="grid">
+            <div class="card span-12">
+                <h3>⚖️ مقارنة المسارات (السنة 25)</h3>
+                <div style="overflow-x:auto;">
+                    <table class="compare-table" id="compareTable">
+                        <thead id="compareHead"></thead>
+                        <tbody id="compareBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card span-12">
+                <h3>📤 شارك</h3>
+                <div class="share-buttons">
+                    <button class="share-btn share-native" onclick="shareNative()">📱 مشاركة</button>
+                    <button class="share-btn share-facebook" onclick="shareTo('facebook')">Facebook</button>
+                    <button class="share-btn share-whatsapp" onclick="shareTo('whatsapp')">WhatsApp</button>
+                    <button class="share-btn share-copy" onclick="copyReport()">📋 نسخ</button>
+                </div>
+            </div>
+            <div class="card span-12">
+                <h3>🏆 الإنجازات</h3>
+                <div class="achievements" id="achievementsGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" id="view4">
+        <div class="grid">
+            <div class="card span-12">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                    <h3 style="margin:0;">🎮 وضع اللعب</h3>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button class="btn green" onclick="startGame()" id="btnStartGame">▶️ بدء</button>
+                        <button class="btn purple" onclick="startDuoMode()">👥 مبارزة</button>
+                        <button class="btn red" onclick="endGame()" id="btnEndGame" style="display:none;">⏹️ إنهاء</button>
+                    </div>
+                </div>
+                <p style="font-size:13px;color:var(--muted);margin-top:10px;">20 سيناريو تفاعلي!</p>
+            </div>
+            <div class="card span-12" id="gameStatsCard" style="display:none;">
+                <div class="game-stats">
+                    <div class="game-stat"><div class="game-stat-label">🌲</div><div class="game-stat-value" id="gameTrees">50</div></div>
+                    <div class="game-stat"><div class="game-stat-label">💧</div><div class="game-stat-value" id="gameWater">50</div></div>
+                    <div class="game-stat"><div class="game-stat-label">🕊️</div><div class="game-stat-value" id="gamePeace">50</div></div>
+                    <div class="game-stat"><div class="game-stat-label">📚</div><div class="game-stat-value" id="gameEdu">50</div></div>
+                    <div class="game-stat"><div class="game-stat-label">🌡️</div><div class="game-stat-value" id="gameTemp">1.5</div></div>
+                    <div class="game-stat"><div class="game-stat-label">⏳</div><div class="game-stat-value" id="gameYear">1</div></div>
+                </div>
+            </div>
+            <div class="card span-12" id="gameScenarioCard" style="display:none;">
+                <div class="game-scenario">
+                    <h3 id="gameScenarioTitle">🎬</h3>
+                    <p id="gameScenarioDesc" style="font-size:14px;line-height:1.8;"></p>
+                    <div class="game-choices" id="gameChoices"></div>
+                </div>
+            </div>
+            <div class="card span-12" id="gameLogCard" style="display:none;">
+                <h3>📜 السجل</h3>
+                <div class="game-log" id="gameLog"></div>
+            </div>
+            <div class="card span-12" id="gameOverCard" style="display:none;">
+                <div class="game-over-banner" id="gameOverBanner">
+                    <h2 id="gameOverTitle">🎉 انتهت</h2>
+                    <div id="gameOverMessage"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" id="view5">
+        <div class="grid">
+            <div class="card span-12">
+                <h3>🗺️ الخريطة التفاعلية</h3>
+                <div class="world-map-container" id="worldMapContainer">
+                    <div id="worldMapSvg"></div>
+                    <div class="map-tooltip" id="mapTooltip"></div>
+                </div>
+            </div>
+            <div class="country-panel span-12" id="countryPanel">
+                <h3 id="countryPanelTitle">🌍 اختر دولة</h3>
+                <div class="country-stats-grid" id="countryStatsGrid"></div>
+                <div style="background:#081522;padding:10px;border-radius:8px;font-size:12px;color:var(--muted);" id="countryNotes">—</div>
+            </div>
+            <div class="card span-12">
+                <h3>📊 إحصائيات عالمية</h3>
+                <div class="stats-grid" id="globalStatsGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" id="view6">
+        <div class="grid">
+            <div class="card span-12">
+                <h3>👤 هويتك</h3>
+                <div class="player-name-input">
+                    <input type="text" id="playerNameInput" maxlength="20" placeholder="اسمك...">
+                    <button class="btn green" onclick="savePlayerName()">💾</button>
+                </div>
+                <div class="trophy-display" id="trophyDisplay">
+                    <span class="trophy">🏆</span>
+                    <span id="trophyText">لاعب جديد</span>
+                </div>
+            </div>
+            <div class="card span-12">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <h3 style="margin:0;">🏆 التحديات الأسبوعية</h3>
+                    <button class="btn gray" onclick="refreshChallenges()">🔄</button>
+                </div>
+                <div class="challenges-grid" id="challengesGrid" style="margin-top:12px;"></div>
+            </div>
+            <div class="card span-12">
+                <h3>🥇 لوحة الصدارة</h3>
+                <div style="max-height:500px;overflow-y:auto;">
+                    <table class="leaderboard-table">
+                        <thead><tr><th>#</th><th>اللاعب</th><th>🎯</th><th>🌲</th><th>💧</th></tr></thead>
+                        <tbody id="leaderboardBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div id="footerText">
+            جميع الحقوق محفوظة © الأمل الأخير للأرض — مختبر العالم v16.0<br>
+            إعداد وتصميم: جابر إسكندر سلامة<br>
+            <span style="color:var(--green);">🔬 منهج علمي دقيق — IPCC, UNEP, WHO, IUCN</span>
+        </div>
+    </div>
+</div>
+
+<div class="cinematic-overlay" id="cinematicOverlay">
+    <button class="cinematic-skip" onclick="skipCinematic()">✖ تخطي</button>
+    <div class="cinematic-scene">
+        <div class="cinematic-stars"></div>
+        <div class="cinematic-earth" id="cinematicEarth"></div>
+        <div class="cinematic-text" id="cinematicText">—</div>
+        <div class="cinematic-score" id="cinematicScore">0</div>
+        <div class="cinematic-grade" id="cinematicGrade">—</div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()">✖</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<div class="notification" id="notification"></div></div><script>
+/* ═══════════════════════════════════════════════════════════
+   الأمل الأخير للأرض — World Lab v16.0
+   COMPLETE JAVASCRIPT
+   ═══════════════════════════════════════════════════════════ */
+
+let audioCtx=null,soundEnabled=true;
+let currentMetrics={};
+let currentLang=localStorage.getItem('worldLabLang')||'ar';
+let unlockedAchievements=JSON.parse(localStorage.getItem('worldLabAchievements')||'[]');
+let gameHistory=JSON.parse(localStorage.getItem('worldLabGameHistory')||'[]');
+let leaderboard=JSON.parse(localStorage.getItem('worldLabLeaderboard')||'[]');
+let playerName=localStorage.getItem('worldLabPlayerName')||'';
+let challenges=JSON.parse(localStorage.getItem('worldLabChallenges')||'[]');
+let completedChallenges=JSON.parse(localStorage.getItem('worldLabCompletedChallenges')||'[]');
+let deferredPrompt=null,swRegistration=null;
+let gameState=null,duoState=null,selectedCountry=null;
+let APP_URL=location.href.split('?')[0];
+let mouseX=window.innerWidth/2,mouseY=window.innerHeight/2;
+let aiConfig=JSON.parse(localStorage.getItem('worldLabAIConfig')||'{}');
+
+/* ═══ TRANSLATIONS ═══ */
+const TRANSLATIONS={
+    ar:{
+        headerTitle:'<span class="main-title">🌍 الأمل الأخير للأرض</span><span class="sub-title">🔬 مختبر العالم — World Lab</span>',
+        headerSubtitle:"محاكاة علمية دقيقة لتتبع مسارات الأزمات البيئية والمجتمعية.",
+        headerCredits:"إعداد وتصميم: جابر إسكندر سلامة",
+        footerText:`جميع الحقوق محفوظة © الأمل الأخير للأرض — مختبر العالم v16.0<br>إعداد وتصميم: جابر إسكندر سلامة`
+    },
+    en:{
+        headerTitle:'<span class="main-title">🌍 Earth\'s Last Hope</span><span class="sub-title">🔬 World Lab</span>',
+        headerSubtitle:"Precise scientific simulation of environmental and social crises.",
+        headerCredits:"By: Jaber Iskandar Salameh",
+        footerText:`© Earth's Last Hope — World Lab v16.0<br>By: Jaber Iskandar Salameh`
+    }
+};
+
+/* ═══ COUNTRIES ═══ */
+const COUNTRIES={
+    sy:{name:{ar:'سوريا',en:'Syria'},flag:'🇸🇾',pop:'22M',trees:5,water:45,crime:75,temp:2.1,status:'risk'},
+    sa:{name:{ar:'السعودية',en:'Saudi Arabia'},flag:'🇸🇦',pop:'35M',trees:2,water:15,crime:20,temp:2.8,status:'risk'},
+    eg:{name:{ar:'مصر',en:'Egypt'},flag:'🇪🇬',pop:'105M',trees:3,water:12,crime:55,temp:2.5,status:'risk'},
+    jp:{name:{ar:'اليابان',en:'Japan'},flag:'🇯🇵',pop:'125M',trees:68,water:88,crime:8,temp:1.4,status:'safe'},
+    cn:{name:{ar:'الصين',en:'China'},flag:'🇨🇳',pop:'1.4B',trees:23,water:55,crime:25,temp:2.4,status:'risk'},
+    in:{name:{ar:'الهند',en:'India'},flag:'🇮🇳',pop:'1.4B',trees:24,water:30,crime:48,temp:2.7,status:'risk'},
+    de:{name:{ar:'ألمانيا',en:'Germany'},flag:'🇩🇪',pop:'84M',trees:33,water:82,crime:30,temp:1.5,status:'safe'},
+    fr:{name:{ar:'فرنسا',en:'France'},flag:'🇫🇷',pop:'68M',trees:32,water:80,crime:38,temp:1.6,status:'safe'},
+    us:{name:{ar:'أمريكا',en:'USA'},flag:'🇺🇸',pop:'330M',trees:34,water:72,crime:60,temp:1.9,status:'risk'},
+    br:{name:{ar:'البرازيل',en:'Brazil'},flag:'🇧🇷',pop:'215M',trees:59,water:78,crime:72,temp:1.8,status:'risk'},
+    ru:{name:{ar:'روسيا',en:'Russia'},flag:'🇷🇺',pop:'144M',trees:50,water:75,crime:52,temp:2.3,status:'risk'},
+    au:{name:{ar:'أستراليا',en:'Australia'},flag:'🇦🇺',pop:'26M',trees:17,water:65,crime:28,temp:2.3,status:'risk'}
+};
+
+const MAP_PATHS={
+    sy:"M555,175 L585,173 L585,192 L557,194 Z",sa:"M560,200 L615,200 L618,245 L565,248 Z",
+    eg:"M520,190 L560,188 L562,220 L525,222 Z",jp:"M855,155 L875,150 L888,175 L872,200 L855,185 Z",
+    cn:"M640,150 L790,140 L830,180 L810,230 L720,235 L650,220 L635,190 Z",
+    in:"M650,200 L710,200 L715,265 L680,290 L650,255 Z",
+    de:"M490,125 L525,125 L528,155 L495,158 Z",fr:"M440,140 L485,138 L488,165 L445,168 Z",
+    us:"M130,145 L250,165 L310,145 L300,200 L260,220 L180,215 L140,200 Z",
+    br:"M280,270 L360,260 L390,320 L370,400 L320,420 L290,380 L280,320 Z",
+    ru:"M530,80 L750,70 L780,120 L740,160 L600,155 L535,130 Z",
+    au:"M820,360 L910,355 L925,400 L880,425 L825,410 Z"
+};
+
+/* ═══ PATHWAYS ═══ */
+const PATHWAY_NAMES={
+    ar:{"1":"المجتمع الراديكالي","2":"المجتمع الرأسمالي","3":"المجتمع العلماني البحت","4":"المجتمع الديني المزدهر","5":"المجتمع الديني المتحفظ"},
+    en:{"1":"Radical","2":"Capitalist","3":"Secular","4":"Flourishing","5":"Conservative"}
+};
+const PATHWAY_IS_SAFE={"1":false,"2":false,"3":false,"4":true,"5":false};
+
+const detailedChains={
+    ar:{
+        "1":["1. المقدمة: تقشف صارم وصراعات فورية","2. السلسلة السببية: تصاعد الجرائم","3. الخطر الشديد: تفكك المنظومة (15 سنة)","4. نقطة اللاعودة: انهيار تام (25 سنة)"],
+        "2":["1. المقدمة: استهلاك مفرط للموارد","2. السلسلة السببية: تراجع الأشجار","3. الخطر الشديد: نفاد الموارد (15 سنة)","4. نقطة اللاعودة: دمار الكوكب (25 سنة)"],
+        "3":["1. المقدمة: مادية مطلقة وغياب الأخلاق","2. السلسلة السببية: فوضى أمنية","3. الخطر الشديد: انهيار المنظومة (15 سنة)","4. نقطة اللاعودة: دمار شامل (25 سنة)"],
+        "4":["1. المقدمة: تكامل القيم والعلوم والتشجير","2. السلسلة السببية: ازدهار وحماية","3. عبور الأزمات بفضل الوعي (15 سنة)","4. الازدهار: نجاة الكوكب (25 سنة)!"],
+        "5":["1. المقدمة: تعليم محافظ ورفض الطب","2. السلسلة السببية: انتشار الأوبئة","3. الخطر الشديد: تفشي الأمراض (15 سنة)","4. نقطة اللاعودة: كوارث شاملة (25 سنة)"]
+    },
+    en:{
+        "1":["1. Austerity & conflicts","2. Rising crime","3. System collapse (15y)","4. Point of no return (25y)"],
+        "2":["1. Excessive consumption","2. Deforestation","3. Resource depletion (15y)","4. Planet destruction (25y)"],
+        "3":["1. Materialism","2. Security chaos","3. System collapse (15y)","4. Total chaos (25y)"],
+        "4":["1. Values + science + trees","2. Prosperity","3. Crisis crossed (15y)","4. Planet saved (25y)!"],
+        "5":["1. Conservative education","2. Pandemics","3. Disease outbreak (15y)","4. Total disaster (25y)"]
+    }
+};
+
+/* ═══ 20 SCENARIOS ═══ */
+const GAME_SCENARIOS=[
+    {title:"🏭 مصنع ملوّث",desc:"مصنع يلوّث النهر. السكان يمرضون.",choices:[
+        {text:"إغلاق فوري",desc:"خسارة وظائف",effects:{trees:10,water:15,peace:-12},reaction:'green'},
+        {text:"فلاتر تنقية",desc:"حل وسط",effects:{trees:4,water:7,peace:-2},reaction:'yellow'},
+        {text:"تجاهل",desc:"اقتصاد أولاً",effects:{trees:-8,water:-12,peace:-5},reaction:'red'}]},
+    {title:"🔥 مظاهرات الغلاء",desc:"ملايين يحتجون على ارتفاع الأسعار 300%.",choices:[
+        {text:"الاستماع للمطالب",desc:"حل سلمي",effects:{peace:15,edu:5},reaction:'green'},
+        {text:"قمع المظاهرات",desc:"بثمن أخلاقي",effects:{peace:-20,edu:-8},reaction:'red'},
+        {text:"قتل المتظاهرين",desc:"⚠️ انتهاك خطير",effects:{peace:-35,edu:-15},reaction:'darkred'},
+        {text:"التفاوض مع القادة",desc:"دبلوماسية",effects:{peace:8,edu:3},reaction:'yellow'}]},
+    {title:"🦠 فيروس جديد",desc:"فيروس انتشر بسرعة. 20% مصابون.",choices:[
+        {text:"إغلاق شامل",desc:"يضر الاقتصاد",effects:{peace:-8,edu:5},reaction:'yellow'},
+        {text:"لقاح سريع",desc:"استثمار علمي",effects:{peace:12,edu:10},reaction:'green'},
+        {text:"تجاهل",desc:"⚠️ كارثة",effects:{peace:-18,edu:-12},reaction:'red'},
+        {text:"إغلاق الحدود",desc:"حل جزئي",effects:{peace:-3,edu:2},reaction:'yellow'}]},
+    {title:"💭 أيديولوجية جديدة",desc:"حركة فكرية تنتشر بين الشباب.",choices:[
+        {text:"حوار مفتوح",desc:"فهم قبل الحكم",effects:{peace:10,edu:12},reaction:'green'},
+        {text:"حظر الحركة",desc:"قمع فكري",effects:{peace:-10,edu:-8},reaction:'red'},
+        {text:"دمج بعض الأفكار",desc:"تحديث",effects:{peace:5,edu:8},reaction:'green'},
+        {text:"تعليم مضاد",desc:"مواجهة سلمية",effects:{peace:3,edu:5},reaction:'yellow'}]},
+    {title:"⚔️ تهديد حربي",desc:"دولة مجاورة تحشد قواتها.",choices:[
+        {text:"دبلوماسية",desc:"سلام",effects:{peace:18,edu:5},reaction:'green'},
+        {text:"تعبئة عسكرية",desc:"استنزاف",effects:{trees:-8,water:-5,peace:-15},reaction:'red'},
+        {text:"هجوم استباقي",desc:"⚠️ حرب شاملة",effects:{trees:-15,water:-12,peace:-30,temp:0.8},reaction:'darkred'},
+        {text:"وساطة دولية",desc:"الأمم المتحدة",effects:{peace:10,edu:5},reaction:'yellow'}]},
+    {title:"🏜️ جفاف شديد",desc:"أشد جفاف منذ 100 سنة.",choices:[
+        {text:"محطات تحلية",desc:"مستدام مكلف",effects:{trees:5,water:25,peace:8},reaction:'green'},
+        {text:"ترشيد صارم",desc:"مؤقت",effects:{water:10,peace:-5},reaction:'yellow'},
+        {text:"استيراد المياه",desc:"باهظ",effects:{water:12,peace:-8},reaction:'yellow'},
+        {text:"لا شيء",desc:"⚠️ كارثة",effects:{trees:-10,water:-25,peace:-25},reaction:'red'}]},
+    {title:"🌳 إزالة غابات",desc:"قطع 100,000 هكتار للمشاريع.",choices:[
+        {text:"رفض قطعي",desc:"حماية",effects:{trees:18,water:8,peace:5},reaction:'green'},
+        {text:"قطع 10%",desc:"حل وسط",effects:{trees:-5,water:-3},reaction:'yellow'},
+        {text:"موافقة كاملة",desc:"اقتصاد",effects:{trees:-25,water:-12,peace:-5},reaction:'red'},
+        {text:"قطع مع إعادة تشجير",desc:"موازنة",effects:{trees:3,water:2,peace:3},reaction:'green'}]},
+    {title:"💰 فساد حكومي",desc:"تسريبات بمليارات.",choices:[
+        {text:"محاكمة عادلة",desc:"شفافية",effects:{peace:18,edu:12},reaction:'green'},
+        {text:"تغطية",desc:"حماية",effects:{peace:-18,edu:-10},reaction:'red'},
+        {text:"إصلاحات جذرية",desc:"نظام جديد",effects:{peace:20,edu:15},reaction:'green'},
+        {text:"لا شيء",desc:"⚠️ استمرار",effects:{peace:-22,edu:-15},reaction:'darkred'}]},
+    {title:"⚡ أزمة طاقة",desc:"نفاد الوقود الأحفوري.",choices:[
+        {text:"طاقة نظيفة",desc:"مستدام",effects:{trees:12,water:8,peace:10,temp:-0.6},reaction:'green'},
+        {text:"استيراد النفط",desc:"مؤقت",effects:{peace:-5,temp:0.3},reaction:'yellow'},
+        {text:"تقنين",desc:"معاناة",effects:{peace:-10,edu:-3},reaction:'yellow'},
+        {text:"لا شيء",desc:"⚠️ انهيار",effects:{peace:-25,edu:-15},reaction:'red'}]},
+    {title:"🏕️ أزمة لاجئين",desc:"ملايين يفرون من دولة منكوبة.",choices:[
+        {text:"استقبال كامل",desc:"إنسانية",effects:{peace:8,edu:10},reaction:'green'},
+        {text:"استقبال مشروط",desc:"محدود",effects:{peace:2,edu:3},reaction:'yellow'},
+        {text:"إغلاق الحدود",desc:"أمن",effects:{peace:-12,edu:-8},reaction:'red'},
+        {text:"مخيمات",desc:"مؤقت",effects:{peace:2,edu:2},reaction:'yellow'}]},
+    {title:"🤖 AI متقدم",desc:"نظام AI يطلب صلاحيات غير محدودة.",choices:[
+        {text:"منحه الصلاحيات",desc:"ثقة بالتقنية",effects:{trees:15,water:15,peace:15,edu:25,temp:-0.5},reaction:'green'},
+        {text:"صلاحيات محدودة",desc:"حذر",effects:{trees:5,water:5,peace:3,edu:8},reaction:'yellow'},
+        {text:"إيقافه",desc:"خوف",effects:{edu:-5},reaction:'red'},
+        {text:"للجيش",desc:"تسليح AI",effects:{peace:-15,edu:5},reaction:'red'}]},
+    {title:"☢️ خطر نووي",desc:"دولة تهدد باستخدام النووي.",choices:[
+        {text:"نزع السلاح",desc:"سلام",effects:{peace:25,edu:10},reaction:'green'},
+        {text:"عقوبات",desc:"ضغط",effects:{peace:5},reaction:'yellow'},
+        {text:"ضربة استباقية",desc:"⚠️ حرب نووية",effects:{trees:-50,water:-50,peace:-50,temp:3},reaction:'darkred'},
+        {text:"حوار",desc:"دبلوماسية",effects:{peace:15,edu:5},reaction:'green'}]},
+    {title:"🌋 كارثة طبيعية",desc:"زلزال 8.5 يدمر مدناً.",choices:[
+        {text:"استجابة سريعة",desc:"إنقاذ فوري",effects:{peace:10,edu:5},reaction:'green'},
+        {text:"مساعدة دولية",desc:"تعاون",effects:{peace:8,edu:3},reaction:'green'},
+        {text:"استجابة بطيئة",desc:"⚠️ خسائر",effects:{peace:-15,edu:-10},reaction:'red'},
+        {text:"إهمال",desc:"⚠️ كارثة",effects:{peace:-25,edu:-15},reaction:'darkred'}]},
+    {title:"🍞 مجاعة",desc:"نقص حاد في الغذاء.",choices:[
+        {text:"طوارئ غذائية",desc:"إنقاذ",effects:{water:3,peace:15,edu:8},reaction:'green'},
+        {text:"استيراد طارئ",desc:"مؤقت",effects:{peace:8,edu:3},reaction:'yellow'},
+        {text:"توزيع عادل",desc:"عدالة",effects:{water:2,peace:12,edu:5},reaction:'green'},
+        {text:"ترك الشعب",desc:"⚠️ موت",effects:{peace:-30,edu:-15},reaction:'darkred'}]},
+    {title:"📱 حرب معلومات",desc:"تضليل واسع على السوشيال.",choices:[
+        {text:"تربية إعلامية",desc:"وعي رقمي",effects:{peace:12,edu:18},reaction:'green'},
+        {text:"رقابة",desc:"قمع",effects:{peace:-5,edu:-8},reaction:'red'},
+        {text:"محاربة الأخبار المزيفة",desc:"تنظيم",effects:{peace:8,edu:10},reaction:'green'},
+        {text:"لا شيء",desc:"⚠️ فوضى",effects:{peace:-15,edu:-12},reaction:'red'}]},
+    {title:"💎 عملة رقمية",desc:"عملة تستهلك طاقة هائلة.",choices:[
+        {text:"تنظيم صارم",desc:"حماية",effects:{trees:5,water:3,peace:8,temp:-0.1},reaction:'green'},
+        {text:"حظر",desc:"منع التعدين",effects:{trees:8,water:3,peace:-3,temp:-0.3},reaction:'yellow'},
+        {text:"دعم",desc:"ابتكار",effects:{trees:-5,water:-3,edu:5,temp:0.3},reaction:'yellow'},
+        {text:"لا شيء",desc:"⚠️ كارثة",effects:{trees:-10,water:-5,peace:-5,temp:0.5},reaction:'red'}]},
+    {title:"🌊 ارتفاع البحر",desc:"مدن ساحلية مهددة بالغرق.",choices:[
+        {text:"سواتر بحرية",desc:"استثمار",effects:{trees:3,water:5,peace:12},reaction:'green'},
+        {text:"نقل المدن",desc:"حل جذري",effects:{water:3,peace:-3,edu:10},reaction:'yellow'},
+        {text:"لا شيء",desc:"⚠️ غرق",effects:{trees:-5,water:-10,peace:-20},reaction:'red'},
+        {text:"خفض الانبعاثات",desc:"حل السبب",effects:{trees:12,water:5,peace:8,temp:-0.5},reaction:'green'}]},
+    {title:"🐘 انقراض جماعي",desc:"آخر 100 فيل مهددون.",choices:[
+        {text:"حماية مطلقة",desc:"محميات",effects:{trees:10,water:5,peace:5,edu:10},reaction:'green'},
+        {text:"عقوبات",desc:"ردع",effects:{trees:3,water:2,peace:3},reaction:'green'},
+        {text:"برامج تكاثر",desc:"علمي",effects:{trees:5,water:2,edu:5},reaction:'green'},
+        {text:"لا شيء",desc:"⚠️ انقراض",effects:{trees:-3,water:-2,edu:-5},reaction:'red'}]},
+    {title:"💵 دخل أساسي",desc:"راتب شهري مضمون.",choices:[
+        {text:"تطبيق كامل",desc:"عدالة",effects:{peace:20,edu:12},reaction:'green'},
+        {text:"تجربة",desc:"دراسة",effects:{peace:5,edu:5},reaction:'yellow'},
+        {text:"رفض",desc:"معاناة",effects:{peace:-12,edu:-8},reaction:'red'},
+        {text:"جزئي",desc:"حل وسط",effects:{peace:8,edu:5},reaction:'yellow'}]},
+    {title:"🚀 استعمار الفضاء",desc:"استثمار ضخم في المريخ.",choices:[
+        {text:"استثمار ضخم",desc:"طموح",effects:{trees:-8,water:-5,peace:15,edu:20},reaction:'yellow'},
+        {text:"متوازن",desc:"حذر",effects:{trees:2,water:2,peace:5,edu:10},reaction:'green'},
+        {text:"رفض",desc:"تركيز على الأرض",effects:{trees:5,water:3,edu:-3},reaction:'green'},
+        {text:"إصلاح الأرض",desc:"حل جذري",effects:{trees:15,water:10,peace:10,edu:15,temp:-0.6},reaction:'green'}]}
+];
+
+/* ═══ AUDIO ═══ */
+function getAudioCtx(){if(!audioCtx){try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){return null;}}if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx;}
+function playSoundEffect(type){
+    if(!soundEnabled)return;
+    const ctx=getAudioCtx();if(!ctx)return;
+    try{
+        const osc=ctx.createOscillator(),gain=ctx.createGain(),now=ctx.currentTime;
+        const configs={
+            success:{type:'sine',freqs:[523,659,784],dur:0.4},
+            warning:{type:'triangle',freqs:[440,415,440],dur:0.4},
+            error:{type:'sawtooth',freqs:[300,150,100],dur:0.4},
+            catastrophe:{type:'sawtooth',freqs:[200,100,50],dur:0.9},
+            secret:{type:'sine',freqs:[880,1320,1760],dur:0.6},
+            levelup:{type:'sine',freqs:[523,659,784,1047,1319],dur:0.6},
+            gameover:{type:'triangle',freqs:[523,466,415,349],dur:1},
+            click:{type:'sine',freqs:[800,400],dur:0.08}
+        };
+        const c=configs[type]||configs.click;
+        osc.type=c.type;
+        c.freqs.forEach((f,i)=>osc.frequency.setValueAtTime(f,now+i*(c.dur/c.freqs.length)));
+        gain.gain.setValueAtTime(0.12,now);
+        gain.gain.exponentialRampToValueAtTime(0.001,now+c.dur);
+        osc.connect(gain);gain.connect(ctx.destination);
+        osc.start(now);osc.stop(now+c.dur);
+    }catch(e){}
+}
+function playReactionSound(r){const m={green:'success',yellow:'warning',red:'error',darkred:'catastrophe'};playSoundEffect(m[r]||'click');}
+
+/* ═══ TABS ═══ */
+function switchTab(i){
+    document.querySelectorAll('.view').forEach((v,idx)=>v.classList.toggle('active',idx===i));
+    document.querySelectorAll('.tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+    if(i===3)renderComparison();
+    if(i===5){renderWorldMap();renderGlobalStats();}
+    if(i===6){renderChallenges();renderLeaderboard();renderTrophy();}
+}
+
+/* ═══ SLIDER ═══ */
+let sliderThrottle=null;
+function onSliderMove(){
+    document.getElementById('scoreVal').innerText=document.getElementById('slider').value+(currentLang==='ar'?' سنة':' yr');
+    if(sliderThrottle)return;
+    sliderThrottle=setTimeout(()=>{sliderThrottle=null;runSimulation({quiet:true});},100);
+}
+function onSliderCommit(){runSimulation();}
+
+/* ═══ SIMULATION ═══ */
+function calculateMetrics(years,pid){
+    const safe=PATHWAY_IS_SAFE[pid],f=Math.pow(1.15,years-1);
+    if(safe)return{crime:Math.max(1,Math.round(5-years*0.1)),trees:Math.min(100,Math.round(100+years*0.5)),animals:Math.min(100,90+years),resources:Math.min(100,Math.round(95+years*0.2)),temp:Math.max(0.5,1-years*0.01),water:Math.min(100,90+years)};
+    return{crime:Math.min(99,Math.round(10+years*3.5*f)),trees:Math.max(0,Math.round(100-years*3.2*f)),animals:Math.max(0,Math.round(90-years*3.5)),resources:Math.max(0,Math.round(95-years*3.6*f)),temp:1+years*0.12*f,water:Math.max(0,Math.round(90-years*3))};
+}
+function runSimulation(opts={}){
+    const years=parseInt(document.getElementById('slider').value);
+    const pid=document.getElementById('pathwaySelect').value;
+    const safe=PATHWAY_IS_SAFE[pid];
+    document.getElementById('scoreVal').innerText=years+(currentLang==='ar'?' سنة':' yr');
+    document.getElementById('currentStatusDisplay').innerText=PATHWAY_NAMES[currentLang][pid];
+    document.getElementById('currentLevelDisplay').innerText=document.getElementById('levelTypeSelect').value==='individual'?(currentLang==='ar'?'فردي':'Individual'):(currentLang==='ar'?'اجتماعي':'Social');
+    const m=calculateMetrics(years,pid);currentMetrics=m;
+    updateMetricCard('cardCrime','valCrime',m.crime+'%',m.crime<20?'good':m.crime<50?'warn':'bad');
+    updateMetricCard('cardTrees','valTrees',m.trees+'%',m.trees>70?'good':m.trees>30?'warn':'bad');
+    updateMetricCard('cardAnimals','valAnimals',m.animals+'%',m.animals>70?'good':m.animals>30?'warn':'bad');
+    updateMetricCard('cardResources','valResources',m.resources+'%',m.resources>70?'good':m.resources>30?'warn':'bad');
+    updateMetricCard('cardTemp','valTemp','+'+m.temp.toFixed(1)+'°C',m.temp<1.5?'good':m.temp<3?'warn':'bad');
+    updateMetricCard('cardWater','valWater',m.water+'%',m.water>70?'good':m.water>30?'warn':'bad');
+    renderSteps(pid,years,safe);renderStrategy(years,safe,m);renderEarthState(safe,years,m);renderWarning(years,safe);drawChart(pid);
+    checkAchievements(pid,years);
+}
+function updateMetricCard(c,v,text,status){document.getElementById(v).innerText=text;const card=document.getElementById(c);card.classList.remove('good','warn','bad');card.classList.add(status);}
+function renderSteps(pid,years,safe){
+    const c=document.getElementById('stepsList');c.innerHTML='';
+    const chain=detailedChains[currentLang][pid];
+    const ac=Math.min(chain.length,Math.floor((years/50)*chain.length)+1);
+    chain.forEach((t,i)=>{const d=document.createElement('div');d.className='step-item';if(i===0)d.classList.add('cause');else if(i<ac)d.classList.add(safe?'active-green':'active');d.textContent=t;c.appendChild(d);});
+}
+function renderStrategy(years,safe,m){
+    const el=document.getElementById('aiStrategyOutput'),ar=currentLang==='ar';
+    let h=`<b>📋 ${ar?'السنة':'Year'} ${years}:</b><br><br>`;
+    if(safe)h+=ar?`✅ مستدام:<br>• الجرائم: ${m.crime}%<br>• الغابات: ${m.trees}%<br>• المياه: ${m.water}%`:`✅ Sustainable:<br>• Crime: ${m.crime}%<br>• Forests: ${m.trees}%`;
+    else h+=ar?`⚠️ خطر:<br>• الجرائم: ${m.crime}%<br>• الغابات: ${m.trees}%<br>• الحرارة: +${m.temp.toFixed(1)}°C`:`⚠️ Danger:<br>• Crime: ${m.crime}%<br>• Temp: +${m.temp.toFixed(1)}°C`;
+    el.innerHTML=h;
+}
+function renderEarthState(safe,years,m){
+    const ar=currentLang==='ar';
+    let emoji='🌍',state='',sk='default';
+    if(safe&&years>=25){emoji='🌳';state=ar?'✨ الكوكب مزدهر':'✨ Thriving';sk='safe';}
+    else if(safe){emoji='🌱';state=ar?'🌱 في طريق النجاة':'🌱 Recovering';sk='safe';}
+    else if(years>=25){emoji='💀';state=ar?'🚨 دمار شامل':'🚨 Destroyed';sk='danger';}
+    else if(years>=15){emoji='🔥';state=ar?'⚠️ خطر شديد':'⚠️ Severe';sk='danger';}
+    else{emoji='🌍';state=ar?'🌡️ تدهور':'🌡️ Deteriorating';}
+    document.getElementById('earthEmoji').textContent=emoji;
+    document.getElementById('earthStateText').textContent=state;
+    document.getElementById('earthDetails').innerHTML=`🌲 ${m.trees}% | 💧 ${m.water}% | 🌡️ +${m.temp.toFixed(1)}°C`;
+    updateEyesState(sk);
+}
+function updateEyesState(state){
+    const l=document.getElementById('leftEye'),r=document.getElementById('rightEye');if(!l||!r)return;
+    l.classList.remove('thriving','broken');r.classList.remove('thriving','broken');
+    if(state==='safe'){l.classList.add('thriving');r.classList.add('thriving');}
+    else if(state==='danger'){l.classList.add('broken');r.classList.add('broken');}
+}
+function renderWarning(years,safe){
+    const box=document.getElementById('warningBox'),ar=currentLang==='ar';
+    if(safe&&years>=25){box.className='warning';box.style.borderColor='var(--green)';box.style.background='#09251a';box.textContent=ar?`✨ نجاح (السنة ${years})!`:`✨ Success (Year ${years})!`;}
+    else if(!safe&&years>=25){box.className='warning danger';box.textContent=ar?`🚨 لاعودة (السنة ${years})!`:`🚨 No return (Year ${years})!`;}
+    else if(!safe&&years>=15){box.className='warning warning-state';box.textContent=ar?`⚠️ خطر شديد (السنة ${years})`:`⚠️ Severe (Year ${years})`;}
+    else{box.className='warning';box.style.borderColor=safe?'var(--green)':'var(--blue)';box.style.background=safe?'#09251a':'#0c2035';box.textContent=ar?`🌱 السنة ${years}: تتبع`:`🌱 Year ${years}: Tracking`;}
+}
+function drawChart(pid){
+    const c=document.getElementById('chartCanvas');if(!c)return;
+    const ctx=c.getContext('2d'),W=c.width,H=c.height;
+    ctx.clearRect(0,0,W,H);ctx.fillStyle='#081522';ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='#1e3a5f';
+    for(let i=0;i<=5;i++){const y=30+(i*(H-60)/5);ctx.beginPath();ctx.moveTo(50,y);ctx.lineTo(W-20,y);ctx.stroke();ctx.fillStyle='#91a8bb';ctx.font='10px Tahoma';ctx.textAlign='right';ctx.fillText((100-i*20)+'%',45,y+3);}
+    const ds=[{k:'crime',c:'#3b82f6'},{k:'trees',c:'#22c55e'},{k:'resources',c:'#f59e0b'},{k:'temp',c:'#ef4444',s:10}];
+    ds.forEach(d=>{ctx.strokeStyle=d.c;ctx.lineWidth=2;ctx.beginPath();
+        for(let y=1;y<=50;y+=2){const m=calculateMetrics(y,pid);let val=m[d.k];if(d.s)val=Math.min(10,val*d.s/10)*10;const x=50+(y/50)*(W-70),yPx=30+((100-Math.min(100,val))/100)*(H-60);if(y===1)ctx.moveTo(x,yPx);else ctx.lineTo(x,yPx);}
+        ctx.stroke();});
+}
+
+/* ═══ AI ADVISOR ═══ */
+async function askAI(){
+    const input=document.getElementById('userInput'),chat=document.getElementById('aiChatBox'),q=input.value.trim();
+    if(!q){showNotification('❌ اكتب سؤالاً',true);return;}
+    const ud=document.createElement('div');ud.className='user-msg';ud.textContent=q;chat.appendChild(ud);input.value='';
+    const ld=document.createElement('div');ld.className='ai-msg';ld.textContent='🔬 جارٍ التحليل...';chat.appendChild(ld);chat.scrollTop=chat.scrollHeight;
+    if(!aiConfig.apiKey){
+        setTimeout(()=>{
+            ld.remove();
+            const ad=document.createElement('div');ad.className='ai-msg';
+            const localAns=analyzeLocal(q);
+            ad.innerHTML=`<div>🔬 <b>تحليل محلي:</b></div><div>${localAns}</div>
+                <div style="margin-top:10px;padding:8px;background:#33260b;border-radius:6px;font-size:11px;color:#fde68a;">
+                    💡 للحصول على إجابات ذكية، اضغط زر 🤖 AI وفعّل Gemini المجاني
+                </div>
+                <div style="margin-top:8px;">
+                    <a href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" class="google-link">🔍 Google</a>
+                    <a href="https://ar.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank" class="google-link" style="background:#5a5a5a;margin-right:5px;">📖 Wikipedia</a>
+                </div>`;
+            chat.appendChild(ad);chat.scrollTop=chat.scrollHeight;
+            unlockAch('chat');
+        },400);
+        return;
+    }
+    try{
+        const answer=await callAI(aiConfig.provider,aiConfig.apiKey,q);
+        ld.remove();
+        const ad=document.createElement('div');ad.className='ai-msg';
+        ad.innerHTML=`<div>🤖 <b>${aiConfig.provider==='gemini'?'Gemini':aiConfig.provider==='openai'?'GPT':'Groq'}:</b></div>
+            <div style="line-height:1.8;">${formatAnswer(answer)}</div>
+            <div style="margin-top:8px;">
+                <a href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" class="google-link">🔍 Google</a>
+            </div>`;
+        chat.appendChild(ad);chat.scrollTop=chat.scrollHeight;
+        unlockAch('chat');
+    }catch(e){
+        ld.remove();
+        const ad=document.createElement('div');ad.className='ai-msg';
+        ad.style.borderRightColor='var(--red)';
+        ad.innerHTML=`<div style="color:var(--red);">❌ ${e.message}</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:5px;">تحقق من المفتاح في إعدادات 🤖 AI</div>
+            <div style="margin-top:8px;"><a href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" class="google-link">🔍 Google</a></div>`;
+        chat.appendChild(ad);chat.scrollTop=chat.scrollHeight;
+    }
+}
+function formatAnswer(text){
+    let h=String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    h=h.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+    h=h.replace(/\*(.+?)\*/g,'<i>$1</i>');
+    h=h.replace(/`(.+?)`/g,'<code style="background:#0a2a3d;padding:2px 5px;border-radius:3px;font-size:11px;">$1</code>');
+    h=h.replace(/\n/g,'<br>');
+    return h;
+}
+function analyzeLocal(q){
+    const ar=currentLang==='ar';
+    const found=[];
+    if(q.includes('الجرائم')||q.includes('crime')||q.includes('جريمة'))found.push(ar?'📉 الجرائم تتأثر بالاقتصاد والعدالة الاجتماعية والتعليم.':'📉 Crime influenced by economy, justice, education.');
+    if(q.includes('الأشجار')||q.includes('trees')||q.includes('غابات'))found.push(ar?'🌳 الغابات تمتص CO2 وتحمي التنوع الحيوي.':'🌳 Forests absorb CO2 and protect biodiversity.');
+    if(q.includes('المياه')||q.includes('water')||q.includes('ماء'))found.push(ar?'💧 2 مليار شخص يعانون شحّ المياه عالمياً.':'💧 2 billion face water scarcity.');
+    if(q.includes('الحرارة')||q.includes('temperature')||q.includes('مناخ')||q.includes('climate'))found.push(ar?'🌡️ اتفاقية باريس: +1.5°C هو الحد الأقصى.':'🌡️ Paris Agreement: +1.5°C limit.');
+    if(q.includes('اليابان')||q.includes('Japan'))found.push(ar?'🇯🇵 اليابان: 68% غابات، 88% مياه نظيفة، جرائم منخفضة جداً.':'🇯🇵 Japan: 68% forests, 88% water, very low crime.');
+    if(q.includes('البرازيل')||q.includes('Brazil'))found.push(ar?'🇧🇷 البرازيل: 59% غابات، لكن أمازون تحت تهديد مستمر.':'🇧🇷 Brazil: 59% forests, Amazon threatened.');
+    if(q.includes('مصر')||q.includes('Egypt'))found.push(ar?'🇪🇬 مصر: 105M ساكن، شحّ مائي شديد، تعتمد على النيل.':'🇪🇬 Egypt: 105M, severe water scarcity.');
+    if(q.includes('الصين')||q.includes('China'))found.push(ar?'🇨🇳 الصين: 1.4B ساكن، أكبر ملوّث عالمي، لكن تشجير ضخم.':'🇨🇳 China: 1.4B, largest polluter, massive reforestation.');
+    if(!found.length)found.push(ar?'جرّب: "الجرائم في اليابان"، "المياه في مصر"، "التغير المناخي"':'Try: "Crime in Japan", "Water in Egypt"');
+    return found.join('<br><br>');
+}
+async function callAI(provider,key,msg){
+    const sysPrompt=currentLang==='ar'?'أنت مستشار علمي. أجب بإيجاز ودقة مع أرقام. لا حشو.':'You are a scientific advisor. Answer concisely with numbers. No fluff.';
+    if(provider==='gemini'){
+        const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({contents:[{role:'user',parts:[{text:sysPrompt+'\n\n'+msg}]}],generationConfig:{temperature:0.7,maxOutputTokens:800}})
+        });
+        const d=await r.json();
+        if(!r.ok){
+            const errMsg=d.error?.message||'API Error';
+            if(errMsg.includes('API_KEY'))throw new Error('المفتاح غير صحيح');
+            if(errMsg.includes('quota'))throw new Error('تجاوزت الحصة اليومية');
+            throw new Error(errMsg);
+        }
+        return d.candidates?.[0]?.content?.parts?.[0]?.text||'لا يوجد رد';
+    }
+    if(provider==='openai'||provider==='groq'){
+        const url=provider==='openai'?'https://api.openai.com/v1/chat/completions':'https://api.groq.com/openai/v1/chat/completions';
+        const model=provider==='openai'?'gpt-4o-mini':'llama-3.1-70b-versatile';
+        const r=await fetch(url,{
+            method:'POST',
+            headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+            body:JSON.stringify({model,messages:[{role:'system',content:sysPrompt},{role:'user',content:msg}],temperature:0.7,max_tokens:800})
+        });
+        const d=await r.json();
+        if(!r.ok)throw new Error(d.error?.message||'API Error');
+        return d.choices?.[0]?.message?.content||'لا يوجد رد';
+    }
+    throw new Error('Unknown provider');
+}
+function openAISettings(){
+    const ar=currentLang==='ar';
+    openModal(`<h3>🤖 ${ar?'إعدادات الذكاء الاصطناعي':'AI Settings'}</h3>
+        <div style="background:#0a3a5c;padding:12px;border-radius:8px;margin-bottom:15px;font-size:13px;line-height:1.7;color:#cbd5e1;">
+            <b style="color:var(--cyan);">🆓 ${ar?'مجاناً 100%':'Free 100%'}:</b><br>
+            ${ar?'1. افتح الرابط → 2. سجل بحساب Google → 3. Create API Key → 4. انسخ والصق':'1. Open link → 2. Sign in with Google → 3. Create API Key → 4. Copy & paste'}<br>
+            <a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--cyan);text-decoration:none;font-weight:bold;">🔗 Google AI Studio</a>
+        </div>
+        <label style="color:var(--cyan);font-size:13px;display:block;margin-bottom:5px;">${ar?'المزود:':'Provider:'}</label>
+        <select id="aiProvider" style="width:100%;padding:12px;background:#081522;border:1px solid var(--line);color:white;border-radius:8px;margin-bottom:12px;font-size:14px;">
+            <option value="gemini" ${aiConfig.provider==='gemini'?'selected':''}>🆓 Google Gemini (Free)</option>
+            <option value="openai" ${aiConfig.provider==='openai'?'selected':''}>💎 OpenAI GPT</option>
+            <option value="groq" ${aiConfig.provider==='groq'?'selected':''}>⚡ Groq Llama</option>
+        </select>
+        <label style="color:var(--cyan);font-size:13px;display:block;margin-bottom:5px;">${ar?'مفتاح API:':'API Key:'}</label>
+        <input type="password" id="aiApiKey" value="${aiConfig.apiKey||''}" placeholder="AIzaSy..." style="width:100%;padding:12px;background:#081522;border:1px solid var(--line);color:white;border-radius:8px;margin-bottom:15px;font-size:14px;font-family:monospace;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="install-method-big" onclick="saveAISettings()" style="flex:1;padding:14px;">💾 ${ar?'حفظ':'Save'}</button>
+            <button class="btn cyan" onclick="testAI()" style="padding:14px 20px;">🧪 ${ar?'اختبار':'Test'}</button>
+            ${aiConfig.apiKey?`<button class="btn red" onclick="clearAI()" style="padding:14px 20px;">🗑️</button>`:''}
+        </div>
+        <div id="aiTestResult" style="margin-top:15px;"></div>
+        <div style="background:#33260b;padding:10px;border-radius:8px;margin-top:15px;font-size:11px;color:#fde68a;">
+            💡 ${ar?'المفتاح يُحفظ في جهازك فقط ولا يُرسل لأي مكان':'Key stored locally only'}
+        </div>`);
+}
+function saveAISettings(){
+    const p=document.getElementById('aiProvider').value,k=document.getElementById('aiApiKey').value.trim();
+    if(!k){showNotification('❌ أدخل المفتاح',true);return;}
+    aiConfig={provider:p,apiKey:k};
+    localStorage.setItem('worldLabAIConfig',JSON.stringify(aiConfig));
+    showNotification('✅ تم الحفظ');
+    closeModal();
+}
+function clearAI(){
+    if(!confirm('مسح إعدادات AI؟'))return;
+    aiConfig={};localStorage.removeItem('worldLabAIConfig');
+    closeModal();showNotification('🗑️');
+}
+async function testAI(){
+    const r=document.getElementById('aiTestResult');r.innerHTML='<div style="text-align:center;padding:15px;color:var(--cyan);">⏳ جارٍ الاختبار...</div>';
+    const p=document.getElementById('aiProvider').value,k=document.getElementById('aiApiKey').value.trim();
+    if(!k){r.innerHTML='<div style="color:var(--red);text-align:center;">❌ أدخل المفتاح أولاً</div>';return;}
+    try{
+        const res=await callAI(p,k,'قل مرحباً بكلمة واحدة');
+        r.innerHTML='<div style="color:#22c55e;padding:12px;background:#09251a;border-radius:8px;text-align:center;">✅ الاتصال ناجح!<br><small style="color:var(--muted);">'+res.substring(0,100)+'</small></div>';
+    }catch(e){
+        r.innerHTML='<div style="color:#ef4444;padding:12px;background:#351014;border-radius:8px;text-align:center;">❌ '+e.message+'</div>';
+    }
+}
+
+/* ═══ COMPARISON ═══ */
+function renderComparison(){
+    const ar=currentLang==='ar';
+    const thead=document.getElementById('compareHead'),tbody=document.getElementById('compareBody');
+    thead.innerHTML='';tbody.innerHTML='';
+    const hr=document.createElement('tr');
+    const names=ar?['الراديكالي','الرأسمالي','العلماني','الديني المزدهر','الديني المتحفظ']:['Radical','Capitalist','Secular','Flourishing','Conservative'];
+    const icons=['⚔️','💎','🔬','🌱','📜'];
+    hr.innerHTML=`<th>${ar?'المؤشر':'Metric'}</th>${names.map((n,i)=>`<th>${icons[i]}<br><small style="font-size:10px;">${n}</small></th>`).join('')}`;
+    thead.appendChild(hr);
+    const rows=[
+        {l:ar?'الجرائم':'Crime',k:'crime',g:'low'},
+        {l:ar?'الأشجار':'Trees',k:'trees',g:'high'},
+        {l:ar?'الحيوانات':'Wildlife',k:'animals',g:'high'},
+        {l:ar?'الموارد':'Resources',k:'resources',g:'high'},
+        {l:ar?'الحرارة':'Temp',k:'temp',g:'low',s:'°C',p:'+'},
+        {l:ar?'المياه':'Water',k:'water',g:'high'}
+    ];
+    rows.forEach(r=>{
+        const tr=document.createElement('tr');
+        const th=document.createElement('td');th.style.fontWeight='bold';th.textContent=r.l;tr.appendChild(th);
+        ['1','2','3','4','5'].forEach(p=>{
+            const m=calculateMetrics(25,p);const td=document.createElement('td');
+            let v=m[r.k],d=(r.p||'')+(r.s?v.toFixed(1):Math.round(v))+(r.s||'%');
+            td.textContent=d;
+            let st;if(r.g==='high')st=v>70?'good':v>30?'warn':'bad';else st=v<20?'good':v<50?'warn':'bad';
+            td.className=st;tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+}
+
+/* ═══ ACHIEVEMENTS ═══ */
+const ACHIEVEMENTS=[
+    {id:'first_run',icon:'🌱',name:'أول محاكاة',desc:'شغّل'},
+    {id:'safe_25',icon:'🏆',name:'نجاة',desc:'مسار 4'},
+    {id:'doom_25',icon:'💀',name:'دمار',desc:'خطر'},
+    {id:'chat',icon:'💬',name:'محاور',desc:'المستشار'},
+    {id:'gamer',icon:'🎮',name:'لاعب',desc:'اللعب'},
+    {id:'polyglot',icon:'🌐',name:'متعدد',desc:'لغة'},
+    {id:'champion',icon:'👑',name:'بطل',desc:'80+'},
+    {id:'challenger',icon:'⚔️',name:'متحدي',desc:'تحدي'},
+    {id:'perfectionist',icon:'💎',name:'الكمال',desc:'S'}
+];
+function checkAchievements(pid,years){
+    const u=id=>{if(!unlockedAchievements.includes(id)){unlockedAchievements.push(id);localStorage.setItem('worldLabAchievements',JSON.stringify(unlockedAchievements));const a=ACHIEVEMENTS.find(x=>x.id===id);showNotification('🏆 '+a.name);}};
+    u('first_run');if(pid==='4'&&years>=25)u('safe_25');if(pid!=='4'&&years>=25)u('doom_25');
+    renderAchievements();
+}
+function renderAchievements(){
+    const g=document.getElementById('achievementsGrid');if(!g)return;g.innerHTML='';
+    ACHIEVEMENTS.forEach(a=>{const d=document.createElement('div');d.className='ach'+(unlockedAchievements.includes(a.id)?' unlocked':'');d.innerHTML=`<span class="ach-icon">${a.icon}</span><b>${a.name}</b><br><small style="color:var(--muted)">${a.desc}</small>`;g.appendChild(d);});
+}
+function unlockAch(id){if(!unlockedAchievements.includes(id)){unlockedAchievements.push(id);localStorage.setItem('worldLabAchievements',JSON.stringify(unlockedAchievements));renderAchievements();}}
+
+/* ═══ REFERENCES ═══ */
+function renderReferences(){
+    const list=document.getElementById('referencesList');if(!list)return;list.innerHTML='';
+    [{t:'IPCC',u:'https://www.ipcc.ch/'},{t:'UNEP',u:'https://www.unep.org/'},{t:'WHO',u:'https://www.who.int/'},{t:'IUCN',u:'https://www.iucnredlist.org/'},{t:'Global Forest Watch',u:'https://www.globalforestwatch.org/'},{t:'NASA Climate',u:'https://climate.nasa.gov/'}].forEach(r=>{
+        const d=document.createElement('div');d.className='ref-item';d.innerHTML=`<a href="${r.u}" target="_blank">🔗 ${r.t}</a>`;list.appendChild(d);
+    });
+}
+
+/* ═══ SHARE ═══ */
+function getShareText(){
+    const y=document.getElementById('slider').value,pid=document.getElementById('pathwaySelect').value,ar=currentLang==='ar';
+    return ar?`🌍 الأمل الأخير للأرض\nالسنة ${y} | ${PATHWAY_NAMES.ar[pid]}`:`🌍 Earth's Last Hope\nYear ${y} | ${PATHWAY_NAMES.en[pid]}`;
+}
+async function shareNative(){const t=getShareText();if(navigator.share){try{await navigator.share({title:'World Lab',text:t,url:APP_URL});}catch(e){}}else copyReport();}
+function shareTo(p){const t=encodeURIComponent(getShareText()),u=encodeURIComponent(APP_URL);
+    const urls={twitter:`https://twitter.com/intent/tweet?text=${t}&url=${u}`,facebook:`https://www.facebook.com/sharer/sharer.php?u=${u}`,whatsapp:`https://wa.me/?text=${t}%20${u}`};
+    window.open(urls[p],'_blank','width=600,height=500');
+}
+function copyReport(){navigator.clipboard.writeText(getShareText()).then(()=>showNotification('📋'));}
+
+/* ═══ GAME ═══ */
+function startGame(){
+    gameState={year:1,maxYear:20,stats:{trees:50,water:50,peace:50,edu:50,temp:1.5},used:[],currentScenario:null};
+    document.getElementById('gameStatsCard').style.display='block';
+    document.getElementById('gameScenarioCard').style.display='block';
+    document.getElementById('gameLogCard').style.display='block';
+    document.getElementById('gameOverCard').style.display='none';
+    document.getElementById('btnStartGame').style.display='none';
+    document.getElementById('btnEndGame').style.display='inline-block';
+    document.getElementById('gameLog').innerHTML='';
+    playSoundEffect('levelup');
+    updateGameStats();nextScenario();
+    showNotification(currentLang==='ar'?'🎮 بدأت اللعبة!':'🎮 Started!');
+}
+function updateGameStats(){
+    if(!gameState)return;
+    document.getElementById('gameTrees').textContent=gameState.stats.trees;
+    document.getElementById('gameWater').textContent=gameState.stats.water;
+    document.getElementById('gamePeace').textContent=gameState.stats.peace;
+    document.getElementById('gameEdu').textContent=gameState.stats.edu;
+    document.getElementById('gameTemp').textContent=gameState.stats.temp.toFixed(1);
+    document.getElementById('gameYear').textContent=gameState.year;
+}
+function nextScenario(){
+    if(!gameState)return;
+    if(gameState.year>gameState.maxYear){endGame();return;}
+    const avail=GAME_SCENARIOS.filter((_,i)=>!gameState.used.includes(i));
+    if(!avail.length)gameState.used=[];
+    const idx=GAME_SCENARIOS.indexOf(avail[Math.floor(Math.random()*avail.length)]);
+    gameState.used.push(idx);
+    gameState.currentScenario=GAME_SCENARIOS[idx];
+    document.getElementById('gameScenarioTitle').textContent=gameState.currentScenario.title;
+    document.getElementById('gameScenarioDesc').textContent=gameState.currentScenario.desc;
+    const ch=document.getElementById('gameChoices');ch.innerHTML='';
+    gameState.currentScenario.choices.forEach((c,i)=>{
+        const b=document.createElement('div');b.className='game-choice';
+        const ic={green:'✅',yellow:'⚠️',red:'❌',darkred:'💀'};
+        b.innerHTML=`<div class="game-choice-title">${ic[c.reaction]||'⚪'} ${c.text}</div><div class="game-choice-desc">${c.desc}</div>`;
+        b.onclick=()=>makeChoice(i);ch.appendChild(b);
+    });
+}
+function makeChoice(idx){
+    const c=gameState.currentScenario.choices[idx];
+    playReactionSound(c.reaction);
+    document.querySelectorAll('.game-choice').forEach((el,i)=>{if(i===idx)el.classList.add('selected');else{el.style.opacity='0.3';el.style.transform='scale(0.95)';}});
+    const old={...gameState.stats};
+    Object.keys(c.effects).forEach(k=>{gameState.stats[k]=Math.max(0,Math.min(100,gameState.stats[k]+c.effects[k]));});
+    gameState.stats.temp=Math.max(0.5,gameState.stats.temp-0.05+(c.effects.temp||0));
+    ['trees','water','peace','edu'].forEach(k=>{
+        const el=document.getElementById('game'+k.charAt(0).toUpperCase()+k.slice(1));
+        if(el&&old[k]!==gameState.stats[k]){el.textContent=gameState.stats[k];el.style.color=gameState.stats[k]>old[k]?'#22c55e':'#ef4444';el.style.transform='scale(1.4)';setTimeout(()=>{el.style.transform='scale(1)';setTimeout(()=>{el.style.color='';},500);},300);}
+    });
+    document.getElementById('gameTemp').textContent=gameState.stats.temp.toFixed(1);
+    gameState.year++;
+    const log=document.getElementById('gameLog');
+    const e=document.createElement('div');
+    e.className='game-log-entry '+(c.reaction==='green'?'positive':(c.reaction==='red'||c.reaction==='darkred')?'negative':'neutral');
+    e.innerHTML=`<b>Y${gameState.year-1}:</b> ${c.text} ${c.reaction==='darkred'?'💀':c.reaction==='red'?'❌':c.reaction==='yellow'?'⚠️':'✅'}`;
+    log.appendChild(e);log.scrollTop=log.scrollHeight;
+    updateGameStats();
+    setTimeout(()=>nextScenario(),700);
+}
+function calculateGrade(score,s){
+    let gp=0;
+    if(score>=90)gp+=5;else if(score>=75)gp+=4;else if(score>=60)gp+=3;else if(score>=40)gp+=2;else if(score>=20)gp+=1;
+    if(s.trees>=80)gp+=2;else if(s.trees>=60)gp+=1;else if(s.trees<30)gp-=1;
+    if(s.water>=80)gp+=2;else if(s.water>=60)gp+=1;else if(s.water<30)gp-=1;
+    if(s.peace>=80)gp+=2;else if(s.peace>=60)gp+=1;else if(s.peace<30)gp-=1;
+    if(s.edu>=80)gp+=2;else if(s.edu>=60)gp+=1;else if(s.edu<30)gp-=1;
+    if(s.temp<=1.0)gp+=2;else if(s.temp<=1.5)gp+=1;else if(s.temp>=3)gp-=3;else if(s.temp>=2.5)gp-=2;
+    if(gp>=14)return{letter:'S',label:'أسطوري',cls:'plus'};
+    if(gp>=11)return{letter:'A',label:'ممتاز',cls:'a'};
+    if(gp>=8)return{letter:'B',label:'جيد جداً',cls:'b'};
+    if(gp>=5)return{letter:'C',label:'جيد',cls:'c'};
+    if(gp>=2)return{letter:'D',label:'ضعيف',cls:'d'};
+    return{letter:'F',label:'فاشل',cls:'f'};
+}
+function endGame(){
+    if(!gameState)return;
+    const ar=currentLang==='ar';
+    document.getElementById('gameScenarioCard').style.display='none';
+    document.getElementById('gameOverCard').style.display='block';
+    document.getElementById('btnStartGame').style.display='inline-block';
+    document.getElementById('btnEndGame').style.display='none';
+    const s=gameState.stats;
+    const score=Math.round((s.trees+s.water+s.peace+s.edu)/4-(s.temp*5));
+    const win=score>=50;
+    const grade=calculateGrade(score,s);
+    playSoundEffect(win?'levelup':'gameover');
+    const session={score,win,trees:s.trees,water:s.water,peace:s.peace,edu:s.edu,temp:s.temp,date:Date.now(),player:playerName||'لاعب',grade:grade.letter};
+    gameHistory.unshift(session);if(gameHistory.length>50)gameHistory=gameHistory.slice(0,50);
+    localStorage.setItem('worldLabGameHistory',JSON.stringify(gameHistory));
+    saveToLeaderboard(session);updateChallengeProgress(session);
+    document.getElementById('gameOverBanner').classList.toggle('win',win);
+    document.getElementById('gameOverTitle').innerHTML=`${win?'🎉':'💀'} ${ar?'انتهت!':'Game Over!'}`;
+    document.getElementById('gameOverMessage').innerHTML=`
+        <div class="grade-display">
+            <div class="grade-letter ${grade.cls}">${grade.letter}</div>
+            <div style="text-align:right;flex:1;max-width:300px;">
+                <div style="font-size:22px;font-weight:bold;margin-bottom:10px;">${grade.label}</div>
+                <div style="font-size:13px;color:var(--muted);">${ar?'النتيجة':'Score'}: <b style="color:var(--cyan);font-size:24px;">${score}/100</b></div>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:15px 0;">
+            <button class="btn green" onclick="showCertificate(${score},${JSON.stringify(grade)},${JSON.stringify(s)})" style="padding:14px;">🏅 ${ar?'شهادة':'Cert'}</button>
+            <button class="btn purple" onclick="shareResult(${score},${JSON.stringify(grade)},${JSON.stringify(s)})" style="padding:14px;">🌐 ${ar?'مشاركة':'Share'}</button>
+            <button class="btn cyan" onclick="playCinematic(${score},${JSON.stringify(grade)},${win})" style="padding:14px;">🎬</button>
+        </div>
+        <div style="background:#081522;padding:15px;border-radius:10px;margin-top:15px;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:8px;text-align:center;">
+                <div>🌲<br><b style="color:#22c55e;font-size:18px;">${s.trees}</b></div>
+                <div>💧<br><b style="color:#38bdf8;font-size:18px;">${s.water}</b></div>
+                <div>🕊️<br><b style="color:#a78bfa;font-size:18px;">${s.peace}</b></div>
+                <div>📚<br><b style="color:#fbbf24;font-size:18px;">${s.edu}</b></div>
+                <div>🌡️<br><b style="color:#ef4444;font-size:18px;">${s.temp.toFixed(1)}</b></div>
+            </div>
+        </div>`;
+    if(win)unlockAch('gamer');
+    if(score>=80)unlockAch('champion');
+    if(grade.letter==='S')unlockAch('perfectionist');
+    showNotification(`${win?'🎉':'💀'} ${grade.letter} — ${grade.label}`,!win);
+    setTimeout(()=>playCinematic(score,grade,win),500);
+    gameState=null;
+    renderLeaderboard();renderTrophy();
+}
+
+/* ═══ CINEMATIC ═══ */
+function playCinematic(score,grade,win){
+    const ar=currentLang==='ar';
+    const o=document.getElementById('cinematicOverlay'),e=document.getElementById('cinematicEarth'),
+        t=document.getElementById('cinematicText'),s=document.getElementById('cinematicScore'),g=document.getElementById('cinematicGrade');
+    if(!o)return;
+    e.className='cinematic-earth';t.className='cinematic-text';s.textContent='0';g.textContent='—';
+    o.classList.add('show');
+    setTimeout(()=>e.classList.add(win?'safe':'danger'),300);
+    setTimeout(()=>{t.textContent=win?'🎉 '+(ar?'أنجزت!':'Done!'):'💀 '+(ar?'فشلت!':'Failed!');t.className='cinematic-text '+(win?'win':'lose');},1500);
+    setTimeout(()=>{let c=0;const inc=score/75;const tm=setInterval(()=>{c+=inc;if(c>=score){c=score;clearInterval(tm);}s.textContent=Math.round(c);},20);},2500);
+    setTimeout(()=>{g.textContent=grade.letter;const cols={S:'#fbbf24',A:'#4ade80',B:'#38bdf8',C:'#f59e0b',D:'#f97316',F:'#ef4444'};g.style.color=cols[grade.letter]||'#38bdf8';},4500);
+    window._ct=setTimeout(skipCinematic,7000);
+}
+function skipCinematic(){const o=document.getElementById('cinematicOverlay');if(o)o.classList.remove('show');if(window._ct)clearTimeout(window._ct);}
+
+/* ═══ CERTIFICATE ═══ */
+function showCertificate(score,grade,stats){
+    const ar=currentLang==='ar';
+    if(!playerName){const n=prompt(ar?'أدخل اسمك:':'Your name:','');if(n){playerName=n;localStorage.setItem('worldLabPlayerName',n);}}
+    const name=playerName||(ar?'بطل':'Hero');
+    const date=new Date().toLocaleDateString(ar?'ar-EG':'en-US');
+    const certId='WL-'+Date.now().toString(36).toUpperCase();
+    const qr=`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(APP_URL)}&bgcolor=ffffff&color=451a03&margin=5`;
+    openModal(`<h3 style="text-align:center;">🏅 ${ar?'شهادتك':'Your Cert'}</h3>
+        <div class="certificate-container" id="certificateBox">
+            <div class="certificate-header">
+                <div class="certificate-logo">🌍</div>
+                <h1 class="certificate-title">${ar?'شهادة إنجاز':'Certificate'}</h1>
+                <p class="certificate-subtitle">${ar?'الأمل الأخير للأرض — مختبر العالم':"Earth's Last Hope — World Lab"}</p>
+            </div>
+            <div class="certificate-body">
+                <div class="certificate-label">${ar?'تُمنح إلى':'Awarded to'}</div>
+                <div class="certificate-name">${escapeHtml(name)}</div>
+                <div class="certificate-grade-box">
+                    <div class="certificate-grade-letter">${grade.letter}</div>
+                    <div class="certificate-grade-label">${grade.label}</div>
+                </div>
+                <div class="certificate-stats">
+                    <div class="certificate-stat">🌲<b>${stats.trees}</b></div>
+                    <div class="certificate-stat">💧<b>${stats.water}</b></div>
+                    <div class="certificate-stat">🕊️<b>${stats.peace}</b></div>
+                    <div class="certificate-stat">📚<b>${stats.edu}</b></div>
+                    <div class="certificate-stat">🌡️<b>${stats.temp.toFixed(1)}</b></div>
+                </div>
+                <div style="font-size:18px;color:#78350f;margin-top:20px;"><b>${score}/100</b></div>
+            </div>
+            <div class="certificate-footer">
+                <div class="certificate-signature-line">${ar?'جابر إسكندر سلامة':'Jaber Iskandar Salameh'}</div>
+                <div class="certificate-qr"><img src="${qr}" alt="QR" crossorigin="anonymous"></div>
+            </div>
+            <div style="font-size:13px;color:#78350f;text-align:center;margin-top:15px;font-style:italic;">${date} | ${certId}</div>
+        </div>
+        <div class="share-buttons" style="justify-content:center;margin-top:15px;">
+            <button class="share-btn share-native" onclick="printCertificate()">🖨️ PDF</button>
+            <button class="share-btn share-twitter" onclick="downloadCertPNG()">📸 PNG</button>
+            <button class="share-btn share-copy" onclick="closeModal()">✖</button>
+        </div>`);
+}
+function printCertificate(){
+    const c=document.getElementById('certificateBox');if(!c)return;
+    const ar=currentLang==='ar';
+    const w=window.open('','_blank');
+    w.document.write(`<!DOCTYPE html><html dir="${ar?'rtl':'ltr'}"><head><meta charset="UTF-8"><title>Cert</title>
+    <style>body{margin:0;padding:20px;background:white}@media print{body{padding:0}}
+    ${Array.from(document.styleSheets).map(s=>{try{return Array.from(s.cssRules).map(r=>r.cssText).join('\n');}catch(e){return '';}}).join('\n')}</style>
+    </head><body>${c.outerHTML}<script>setTimeout(()=>window.print(),800);<\/script></body></html>`);
+    w.document.close();
+}
+async function downloadCertPNG(){
+    const c=document.getElementById('certificateBox');if(!c)return;
+    showNotification('📸...');
+    try{
+        if(!window.html2canvas)await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+        const cv=await window.html2canvas(c,{backgroundColor:'#fef9c3',scale:2,useCORS:true});
+        cv.toBlob(b=>{const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=`cert-${Date.now()}.png`;a.click();URL.revokeObjectURL(u);showNotification('✅');},'image/png');
+    }catch(e){showNotification('❌',true);}
+}
+function loadScript(s){return new Promise((res,rej)=>{const sc=document.createElement('script');sc.src=s;sc.onload=res;sc.onerror=rej;document.head.appendChild(sc);});}
+
+/* ═══ SHARE RESULT ═══ */
+async function shareResult(score,grade,stats){
+    const ar=currentLang==='ar';
+    const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=630;
+    const ctx=canvas.getContext('2d');
+    const g=ctx.createLinearGradient(0,0,1200,630);
+    g.addColorStop(0,'#0c2035');g.addColorStop(0.5,'#07111f');g.addColorStop(1,'#0a1725');
+    ctx.fillStyle=g;ctx.fillRect(0,0,1200,630);
+    for(let i=0;i<100;i++){ctx.fillStyle='rgba(255,255,255,'+(Math.random()*0.5+0.2)+')';ctx.fillRect(Math.random()*1200,Math.random()*630,1.5,1.5);}
+    ctx.font='bold 42px Tahoma';ctx.fillStyle='#38bdf8';ctx.textAlign='center';
+    ctx.fillText(ar?'🌍 الأمل الأخير للأرض':"🌍 Earth's Last Hope",600,80);
+    ctx.font='bold 20px Tahoma';ctx.fillStyle='#22d3ee';ctx.fillText('🔬 World Lab',600,115);
+    const colors={S:'#fbbf24',A:'#4ade80',B:'#38bdf8',C:'#f59e0b',D:'#f97316',F:'#ef4444'};
+    const gc=colors[grade.letter]||'#38bdf8';
+    ctx.beginPath();ctx.arc(280,350,130,0,Math.PI*2);ctx.fillStyle='#081522';ctx.fill();ctx.strokeStyle=gc;ctx.lineWidth=6;ctx.stroke();
+    ctx.font='bold 180px Arial Black';ctx.fillStyle=gc;ctx.textBaseline='middle';ctx.fillText(grade.letter,280,355);
+    ctx.font='bold 22px Tahoma';ctx.fillText(grade.label.toUpperCase(),280,520);
+    ctx.textAlign='right';ctx.textBaseline='alphabetic';
+    ctx.font='bold 28px Tahoma';ctx.fillStyle='#91a8bb';ctx.fillText(ar?'النتيجة':'Score',1120,220);
+    ctx.font='bold 90px Arial Black';ctx.fillStyle='#22d3ee';ctx.fillText(score+'',1120,320);
+    ctx.font='22px Tahoma';ctx.fillStyle='#edf7ff';
+    let y=420;ctx.fillText(`🌲 ${stats.trees}%`,1120,y);y+=32;
+    ctx.fillText(`💧 ${stats.water}%`,1120,y);y+=32;
+    ctx.fillText(`🕊️ ${stats.peace}%`,1120,y);y+=32;
+    ctx.fillText(`📚 ${stats.edu}%`,1120,y);y+=32;
+    ctx.fillText(`🌡️ +${stats.temp.toFixed(1)}°C`,1120,y);
+    ctx.textAlign='center';ctx.font='bold 22px Tahoma';ctx.fillStyle='#22c55e';
+    ctx.fillText(ar?'✨ هل يمكنك التغلب؟':'✨ Can you beat it?',600,590);
+    canvas.toBlob(b=>{
+        const u=URL.createObjectURL(b);
+        openModal(`<h3 style="text-align:center;">🌐</h3>
+            <div style="text-align:center;margin:15px 0;"><img src="${u}" style="width:100%;max-width:600px;border-radius:12px;"></div>
+            <div class="share-buttons" style="justify-content:center;">
+                <button class="share-btn share-native" onclick="shareNativeImage('${u}')">📱</button>
+                <a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(APP_URL)}" target="_blank">Facebook</a>
+                <button class="share-btn share-copy" onclick="downloadImg('${u}')">💾</button>
+            </div>`);
+    },'image/png');
+}
+async function shareNativeImage(u){try{const b=await fetch(u).then(r=>r.blob());const f=new File([b],'result.png',{type:'image/png'});if(navigator.share&&navigator.canShare({files:[f]}))await navigator.share({files:[f]});else downloadImg(u);}catch(e){downloadImg(u);}}
+function downloadImg(u){const a=document.createElement('a');a.href=u;a.download=`result-${Date.now()}.png`;a.click();showNotification('✅');}
+
+/* ═══ SOCIAL QR ═══ */
+function showSocialQR(){
+    const ar=currentLang==='ar';
+    const qr=`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(APP_URL)}&bgcolor=ffffff&color=07111f&margin=15`;
+    openModal(`<h3 style="text-align:center;">📱 QR</h3>
+        <div class="social-qr-preview" id="socialQRPreview">
+            <div class="social-qr-title">🌍 ${ar?'الأمل الأخير للأرض':"Earth's Last Hope"}</div>
+            <div class="social-qr-subtitle">🔬 World Lab</div>
+            <div class="social-qr-code-box"><img src="${qr}" alt="QR" crossorigin="anonymous"></div>
+            <div class="social-qr-url">${APP_URL}</div>
+            <div class="social-qr-badge">📲 ${ar?'امسح للتحميل':'SCAN'}</div>
+        </div>
+        <div class="share-buttons" style="justify-content:center;margin-top:15px;">
+            <button class="share-btn share-native" onclick="downloadSocialQR()">📸 ${ar?'تحميل':'Download'}</button>
+            <a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(APP_URL)}" target="_blank">Facebook</a>
+            <button class="share-btn share-copy" onclick="copyToClipboard('${APP_URL}')">📋</button>
+        </div>`);
+}
+async function downloadSocialQR(){
+    const p=document.getElementById('socialQRPreview');if(!p)return;
+    showNotification('📸...');
+    try{
+        if(!window.html2canvas)await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+        const cv=await window.html2canvas(p,{backgroundColor:'#07111f',scale:2,useCORS:true});
+        cv.toBlob(b=>{const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=`social-qr-${Date.now()}.png`;a.click();URL.revokeObjectURL(u);showNotification('✅');},'image/png');
+    }catch(e){
+        const i=p.querySelector('img');
+        if(i){const a=document.createElement('a');a.href=i.src;a.download='qr.png';a.click();}
+    }
+}
+function copyToClipboard(t){navigator.clipboard.writeText(t).then(()=>showNotification('📋'));}
+
+/* ═══ DUO ═══ */
+function startDuoMode(){
+    const ar=currentLang==='ar';
+    if(!playerName){const n=prompt(ar?'اللاعب 1:':'P1:');if(n){playerName=n;localStorage.setItem('worldLabPlayerName',n);}}
+    const p2=prompt(ar?'اللاعب 2:':'P2:')||(ar?'لاعب 2':'P2');
+    duoState={p1:{name:playerName||'P1',score:0},p2:{name:p2,score:0},cy:1,my:10,used:[]};
+    showDuoUI();nextDuoScenario();
+}
+function showDuoUI(){
+    const ar=currentLang==='ar';
+    const panel=document.getElementById('view4');
+    panel.querySelector('.grid').innerHTML=`
+        <div class="card span-12">
+            <div class="duo-mode-banner">
+                <span class="duo-player-badge p1" id="p1B">🌊 ${duoState.p1.name}: 0</span>
+                <div class="duo-timer" id="dT">Y1/10</div>
+                <span class="duo-player-badge p2" id="p2B">🔥 ${duoState.p2.name}: 0</span>
+            </div>
+        </div>
+        <div class="card span-12">
+            <div class="game-scenario">
+                <h3 id="dTitle">🎬</h3>
+                <p id="dDesc"></p>
+                <div class="duo-choices" id="dChoices"></div>
+            </div>
+        </div>
+        <div class="card span-12">
+            <h3>📜 ${ar?'السجل':'Log'}</h3>
+            <div class="game-log" id="dLog"></div>
+            <button class="btn red" onclick="endDuo()" style="margin-top:10px;">⏹️</button>
+        </div>`;
+}
+function nextDuoScenario(){
+    if(!duoState)return;
+    if(duoState.cy>duoState.my){endDuo();return;}
+    const av=GAME_SCENARIOS.filter((_,i)=>!duoState.used.includes(i));
+    if(!av.length)duoState.used=[];
+    const idx=GAME_SCENARIOS.indexOf(av[Math.floor(Math.random()*av.length)]);
+    duoState.used.push(idx);
+    const sc=GAME_SCENARIOS[idx];
+    document.getElementById('dTitle').textContent=sc.title;
+    document.getElementById('dDesc').textContent=sc.desc;
+    const ch=document.getElementById('dChoices');ch.innerHTML='';
+    sc.choices.forEach((c,i)=>{
+        const b=document.createElement('div');
+        const p=i%2===0?1:2;
+        b.className='game-choice duo-choice-p'+p;
+        b.innerHTML=`<div style="font-size:11px;color:${p===1?'#0ea5e9':'#f59e0b'};font-weight:bold;">${p===1?'🌊 '+duoState.p1.name:'🔥 '+duoState.p2.name}</div>
+            <div class="game-choice-title">${c.text}</div>
+            <div class="game-choice-desc">${c.desc}</div>`;
+        b.onclick=()=>makeDuoChoice(c,p);
+        ch.appendChild(b);
+    });
+}
+function makeDuoChoice(c,p){
+    playReactionSound(c.reaction);
+    const pts=Object.values(c.effects).reduce((a,b)=>a+b,0);
+    if(p===1)duoState.p1.score+=pts;else duoState.p2.score+=pts;
+    const log=document.getElementById('dLog');
+    const e=document.createElement('div');
+    e.className='game-log-entry '+(pts>0?'positive':'negative');
+    e.innerHTML=`<b>Y${duoState.cy}:</b> ${p===1?'🌊':'🔥'} ${c.text} (${pts>0?'+':''}${pts})`;
+    log.appendChild(e);log.scrollTop=log.scrollHeight;
+    duoState.cy++;
+    document.getElementById('p1B').innerHTML=`🌊 ${duoState.p1.name}: ${duoState.p1.score}`;
+    document.getElementById('p2B').innerHTML=`🔥 ${duoState.p2.name}: ${duoState.p2.score}`;
+    document.getElementById('dT').textContent=`Y${duoState.cy}/${duoState.my}`;
+    setTimeout(nextDuoScenario,800);
+}
+function endDuo(){
+    if(!duoState)return;
+    const p1=duoState.p1,p2=duoState.p2;
+    const w=p1.score>p2.score?1:p2.score>p1.score?2:0;
+    playSoundEffect(w===0?'warning':'levelup');
+    openModal(`<h3 style="text-align:center;">🏆</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0;">
+            <div style="background:linear-gradient(145deg,${w===1?'#0ea5e9,#0284c7':'#0a1725,#081522'});padding:20px;border-radius:12px;text-align:center;">
+                <div style="font-size:36px;">🌊</div>
+                <div style="font-weight:bold;color:white;margin:8px 0;">${p1.name}</div>
+                <div style="font-size:42px;font-weight:900;color:${w===1?'#fbbf24':'#91a8bb'};">${p1.score}</div>
+            </div>
+            <div style="background:linear-gradient(145deg,${w===2?'#f59e0b,#d97706':'#0a1725,#081522'});padding:20px;border-radius:12px;text-align:center;">
+                <div style="font-size:36px;">🔥</div>
+                <div style="font-weight:bold;color:white;margin:8px 0;">${p2.name}</div>
+                <div style="font-size:42px;font-weight:900;color:${w===2?'#fbbf24':'#91a8bb'};">${p2.score}</div>
+            </div>
+        </div>
+        <div style="text-align:center;padding:15px;background:#081522;border-radius:10px;">
+            <div style="font-size:24px;font-weight:bold;color:${w===0?'#fbbf24':'#22c55e'};">${w===0?'🤝 تعادل!':'🏆 '+(w===1?p1.name:p2.name)+' يفوز!'}</div>
+        </div>
+        <div class="share-buttons" style="justify-content:center;margin-top:15px;">
+            <button class="share-btn share-native" onclick="closeModal();location.reload();">🔄</button>
+        </div>`);
+}
+
+/* ═══ MAP ═══ */
+function renderWorldMap(){
+    const c=document.getElementById('worldMapSvg');if(!c)return;
+    let svg=`<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        <defs><radialGradient id="ocean" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#0a2238"/><stop offset="100%" stop-color="#020617"/>
+        </radialGradient></defs>
+        <rect width="1000" height="500" fill="url(#ocean)"/>`;
+    Object.entries(MAP_PATHS).forEach(([code,path])=>{
+        const ct=COUNTRIES[code];if(!ct)return;
+        const cls=ct.status==='safe'?'safe':ct.status==='risk'?'risk':'danger';
+        svg+=`<path class="country-path ${cls}" d="${path}" data-country="${code}"
+            onmouseenter="showMapTooltip(event,'${code}')" onmouseleave="hideMapTooltip()"
+            onclick="selectCountry('${code}')"><title>${ct.name[currentLang]||ct.name.ar}</title></path>`;
+    });
+    svg+='</svg>';
+    c.innerHTML=svg;
+}
+function showMapTooltip(e,code){
+    const ct=COUNTRIES[code];if(!ct)return;
+    const t=document.getElementById('mapTooltip');
+    t.innerHTML=`<h4>${ct.flag} ${ct.name[currentLang]||ct.name.ar}</h4>
+        <div style="display:flex;justify-content:space-between;"><span>🌲</span><span>${ct.trees}%</span></div>
+        <div style="display:flex;justify-content:space-between;"><span>💧</span><span>${ct.water}%</span></div>
+        <div style="display:flex;justify-content:space-between;"><span>🕊️</span><span>${ct.crime}%</span></div>`;
+    const cont=document.getElementById('worldMapContainer');
+    const r=cont.getBoundingClientRect();
+    t.style.left=(e.clientX-r.left+15)+'px';
+    t.style.top=(e.clientY-r.top+15)+'px';
+    t.classList.add('show');
+}
+function hideMapTooltip(){const t=document.getElementById('mapTooltip');if(t)t.classList.remove('show');}
+function selectCountry(code){
+    selectedCountry=code;
+    document.querySelectorAll('.country-path').forEach(p=>p.classList.toggle('selected',p.dataset.country===code));
+    showCountryPanel(code);
+}
+function showCountryPanel(code){
+    const ct=COUNTRIES[code];if(!ct)return;
+    const panel=document.getElementById('countryPanel');
+    panel.classList.add('show');
+    document.getElementById('countryPanelTitle').textContent=(ct.flag||'🌍')+' '+(ct.name[currentLang]||ct.name.ar);
+    const stats=[{l:'Pop',v:ct.pop},{l:'🌲',v:ct.trees+'%'},{l:'💧',v:ct.water+'%'},{l:'🕊️',v:ct.crime+'%'},{l:'🌡️',v:'+'+ct.temp+'°C'}];
+    document.getElementById('countryStatsGrid').innerHTML=stats.map(s=>
+        `<div class="country-stat-box"><div class="country-stat-label">${s.l}</div><div class="country-stat-value">${s.v}</div></div>`
+    ).join('');
+    document.getElementById('countryNotes').textContent=ct.name[currentLang]||ct.name.ar;
+}
+function renderGlobalStats(){
+    const g=document.getElementById('globalStatsGrid');if(!g)return;
+    const c=Object.values(COUNTRIES);
+    const safe=c.filter(x=>x.status==='safe').length;
+    const risk=c.filter(x=>x.status==='risk').length;
+    const danger=c.filter(x=>x.status==='danger').length;
+    const stats=[
+        {icon:'✅',v:safe,l:'آمن',cls:'green'},
+        {icon:'⚠️',v:risk,l:'خطر',cls:'gold'},
+        {icon:'🚨',v:danger,l:'خطر شديد',cls:'red'},
+        {icon:'🌍',v:c.length,l:'دول',cls:'purple'}
+    ];
+    g.innerHTML=stats.map(s=>`<div class="stat-box ${s.cls}"><div class="stat-icon">${s.icon}</div><div class="stat-value">${s.v}</div><div class="stat-label">${s.l}</div></div>`).join('');
+}
+
+/* ═══ CHALLENGES ═══ */
+const CHALLENGES=[
+    {id:'play_3',n:'لاعب نشط',d:'العب 3 جلسات',t:3,ty:'games',r:50},
+    {id:'score_60',n:'أداء جيد',d:'60+ نقطة',t:60,ty:'maxScore',r:80},
+    {id:'score_80',n:'متميز',d:'80+ نقطة',t:80,ty:'maxScore',r:150},
+    {id:'win_2',n:'منتصر',d:'افز 2',t:2,ty:'wins',r:100},
+    {id:'trees_80',n:'حامي',d:'80 غابات',t:80,ty:'maxTrees',r:120}
+];
+function getWeekKey(){const d=new Date(),day=d.getDay();const diff=d.getDate()-day+(day===0?-6:1);return new Date(d.setDate(diff)).toISOString().split('T')[0];}
+function generateWeeklyChallenges(){
+    const wk=getWeekKey();
+    if(localStorage.getItem('worldLabChallengesWeek')===wk&&challenges.length>0)return;
+    const sh=[...CHALLENGES].sort(()=>Math.random()-0.5);
+    challenges=sh.slice(0,4).map(t=>({...t,progress:0,completed:false}));
+    localStorage.setItem('worldLabChallenges',JSON.stringify(challenges));
+    localStorage.setItem('worldLabChallengesWeek',wk);
+}
+function updateChallengeProgress(s){
+    let ch=false;
+    challenges.forEach(c=>{
+        if(c.completed)return;
+        let np=c.progress;
+        switch(c.ty){
+            case 'games':np=Math.min(c.t,c.progress+1);break;
+            case 'wins':if(s.win)np=Math.min(c.t,c.progress+1);break;
+            case 'maxScore':np=Math.max(c.progress,s.score);break;
+            case 'maxTrees':np=Math.max(c.progress,s.trees);break;
+        }
+        if(np!==c.progress){c.progress=np;if(c.progress>=c.t&&!c.completed){c.completed=true;unlockAch('challenger');showNotification('🏆 '+c.n);}ch=true;}
+    });
+    if(ch)localStorage.setItem('worldLabChallenges',JSON.stringify(challenges));
+}
+function renderChallenges(){
+    generateWeeklyChallenges();
+    const g=document.getElementById('challengesGrid');if(!g)return;g.innerHTML='';
+    challenges.forEach(c=>{
+        const card=document.createElement('div');
+        card.className='challenge-card'+(c.completed?' completed':'');
+        const pct=Math.min(100,(c.progress/c.t)*100);
+        card.innerHTML=`<div class="challenge-header"><div class="challenge-title">${c.n}</div><div class="challenge-reward">⭐ ${c.r}</div></div>
+            <div class="challenge-desc">${c.d}</div>
+            <div class="challenge-progress"><div class="challenge-progress-fill" style="width:${pct}%"></div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:var(--muted);"><span>${c.progress}/${c.t}</span><span>${c.completed?'✅':'🔵'}</span></div>`;
+        g.appendChild(card);
+    });
+}
+function refreshChallenges(){localStorage.removeItem('worldLabChallengesWeek');challenges=[];generateWeeklyChallenges();renderChallenges();}
+
+/* ═══ LEADERBOARD ═══ */
+function saveToLeaderboard(s){
+    leaderboard.push({name:s.player||'لاعب',score:s.score,trees:s.trees,water:s.water,date:s.date});
+    leaderboard.sort((a,b)=>b.score-a.score);
+    leaderboard=leaderboard.slice(0,20);
+    localStorage.setItem('worldLabLeaderboard',JSON.stringify(leaderboard));
+}
+function savePlayerName(){
+    const n=document.getElementById('playerNameInput').value.trim();
+    if(!n){showNotification('❌',true);return;}
+    playerName=n;localStorage.setItem('worldLabPlayerName',n);
+    showNotification('✅');renderTrophy();
+}
+function renderLeaderboard(){
+    const tb=document.getElementById('leaderboardBody');if(!tb)return;
+    if(!leaderboard.length){tb.innerHTML='<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:30px;">لا توجد نتائج</td></tr>';return;}
+    tb.innerHTML='';
+    leaderboard.forEach((e,i)=>{
+        const tr=document.createElement('tr');
+        if(e.name===playerName)tr.className='leaderboard-you';
+        const ic=i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1);
+        tr.innerHTML=`<td class="leaderboard-rank">${ic}</td><td>${e.name}</td><td class="leaderboard-score">${e.score}</td><td>🌲${e.trees}</td><td>💧${e.water}</td>`;
+        tb.appendChild(tr);
+    });
+}
+function renderTrophy(){
+    const el=document.getElementById('trophyDisplay');if(!el)return;
+    const t=document.getElementById('trophyText');
+    if(!playerName){el.querySelector('.trophy').textContent='🏆';t.textContent='لاعب جديد';return;}
+    const pe=leaderboard.filter(e=>e.name===playerName);
+    if(!pe.length){el.querySelector('.trophy').textContent='🎮';t.textContent=playerName;}
+    else{
+        const best=Math.max(...pe.map(e=>e.score));
+        const rank=leaderboard.findIndex(e=>e.name===playerName&&e.score===best)+1;
+        el.querySelector('.trophy').textContent=rank===1?'👑':rank<=3?'🏆':'🎖️';
+        t.innerHTML=`<b>${playerName}</b> — ${best} | #${rank}`;
+    }
+}
+
+/* ═══ ADMIN ═══ */
+const ADMIN_PASSWORD='19711974js';
+function openAdminPanel(){
+    openModal(`<div style="text-align:center;padding:30px;">
+        <div style="font-size:70px;margin-bottom:15px;">🔐</div>
+        <h3 style="color:#fbbf24;">لوحة الإدارة</h3>
+        <p style="color:var(--muted);font-size:13px;">للمدير: جابر إسكندر سلامة</p>
+        <input type="password" id="adminPass" placeholder="••••••••"
+            style="width:100%;max-width:350px;padding:14px;background:#081522;border:2px solid #fbbf24;border-radius:12px;color:white;font-size:16px;text-align:center;letter-spacing:3px;margin:15px auto;display:block;font-family:monospace;"
+            onkeydown="if(event.key==='Enter')tryAdminLogin()">
+        <button class="btn gold" onclick="tryAdminLogin()" style="padding:14px 40px;font-size:16px;background:linear-gradient(135deg,#78560a,#fbbf24);color:#000;">🔓 دخول</button>
+        <div id="adminLoginMsg" style="margin-top:12px;color:var(--red);font-size:12px;"></div>
+    </div>`);
+    setTimeout(()=>document.getElementById('adminPass')?.focus(),100);
+}
+function tryAdminLogin(){
+    const p=document.getElementById('adminPass').value;
+    if(p===ADMIN_PASSWORD)showAdminDashboard();
+    else{const m=document.getElementById('adminLoginMsg');if(m)m.textContent='❌ كلمة مرور خاطئة';}
+}
+function showAdminDashboard(){
+    openModal(`<div style="background:linear-gradient(135deg,#78560a,#4a3a10);padding:15px;border-radius:12px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:center;">
+        <div><h3 style="color:white;margin:0;">👑 جابر إسكندر سلامة</h3><p style="color:#fde68a;margin:3px 0 0;font-size:11px;">مدير النظام</p></div>
+        <button class="btn red" onclick="closeModal()">🚪</button>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-box gold"><div class="stat-icon">🎮</div><div class="stat-value">${gameHistory.length}</div><div class="stat-label">جلسات</div></div>
+        <div class="stat-box green"><div class="stat-icon">🏆</div><div class="stat-value">${unlockedAchievements.length}</div><div class="stat-label">إنجازات</div></div>
+    </div>
+    <div style="background:#081522;padding:15px;border-radius:10px;margin-top:15px;">
+        <h4 style="color:var(--cyan);margin:0 0 10px;">📢 إشعار</h4>
+        <input type="text" id="adminTitle" placeholder="عنوان..." style="width:100%;padding:10px;background:#0a1725;border:1px solid var(--line);color:white;border-radius:8px;margin-bottom:8px;">
+        <textarea id="adminBody" placeholder="المحتوى..." style="width:100%;padding:10px;background:#0a1725;border:1px solid var(--line);color:white;border-radius:8px;min-height:60px;"></textarea>
+        <button class="btn purple" onclick="adminBroadcast()" style="width:100%;margin-top:8px;">📤 إرسال</button>
+    </div>
+    <button class="btn cyan" onclick="exportAllData()" style="width:100%;margin-top:15px;">📥 تصدير البيانات</button>
+    <button class="btn red" onclick="if(confirm('حذف كل شيء؟')){localStorage.clear();location.reload();}" style="width:100%;margin-top:15px;">💣 إعادة ضبط</button>`);
+}
+function adminBroadcast(){
+    const t=document.getElementById('adminTitle').value,b=document.getElementById('adminBody').value;
+    if(!t||!b){showNotification('❌',true);return;}
+    if('Notification' in window&&Notification.permission==='granted')new Notification(t,{body:b});
+    showNotification('✅');
+}
+function exportAllData(){
+    const d={gameHistory,leaderboard,unlockedAchievements,challenges,playerName,date:new Date().toISOString()};
+    const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+    const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=`world-lab-${Date.now()}.json`;a.click();
+}
+
+/* ═══ INSTALL & QR ═══ */
+function openInstallGuide(){
+    const ar=currentLang==='ar';
+    const isAndroid=/Android/i.test(navigator.userAgent);
+    const isIOS=/iPhone|iPad/i.test(navigator.userAgent);
+    const isInstalled=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+    const hasPrompt=!!deferredPrompt;
+    const isHTTPS=location.protocol==='https:';
+    let statusHtml='';
+    if(isInstalled){
+        statusHtml=`<div style="background:#09251a;border:2px solid var(--green);padding:15px;border-radius:12px;text-align:center;margin-bottom:15px;">
+            <div style="font-size:40px;margin-bottom:10px;">✅</div>
+            <b style="color:var(--green);font-size:16px;">${ar?'التطبيق مثبّت بالفعل!':'Already installed!'}</b>
+        </div>`;
+    } else if(hasPrompt){
+        statusHtml=`<div style="background:#09251a;border:2px solid var(--green);padding:15px;border-radius:12px;text-align:center;margin-bottom:15px;">
+            <b style="color:var(--green);font-size:14px;">⚡ ${ar?'التثبيت التلقائي متاح!':'Auto-install available!'}</b>
+            <button class="install-method-big" onclick="attemptAutoInstall()" style="margin:12px 0 0;">⚡ ${ar?'تثبيت الآن':'Install Now'}</button>
+        </div>`;
+    } else if(!isHTTPS){
+        statusHtml=`<div style="background:#33260b;border:2px solid var(--yellow);padding:15px;border-radius:12px;margin-bottom:15px;font-size:12px;line-height:1.8;">
+            <b style="color:var(--yellow);">⚠️ ${ar?'تنبيه مهم':'Important'}:</b><br>
+            ${ar?'التطبيق يعمل عبر':'App running on'}: <code>${location.protocol}</code><br>
+            ${ar?'لتثبيت PWA كامل، يحتاج رابط HTTPS':'For full PWA, needs HTTPS URL'}<br>
+            <a href="https://pages.github.com" target="_blank" style="color:var(--cyan);font-weight:bold;">🔗 GitHub Pages (مجاني)</a>
+        </div>`;
+    }
+    let guideHtml='';
+    if(isAndroid){
+        guideHtml=`<div class="android-install-highlight">
+            <h4>🤖 ${ar?'خطوات التثبيت (Android)':'Android Steps'}</h4>
+            <ol>
+                <li>${ar?'افتح في <b>Chrome</b>':'Open in <b>Chrome</b>'}</li>
+                <li>${ar?'اضغط <b>⋮</b> (3 نقاط)':'Tap <b>⋮</b>'}</li>
+                <li>${ar?'<span class="highlight">"تثبيت التطبيق"</span>':'<span class="highlight">"Install App"</span>'}</li>
+                <li>${ar?'اضغط <b>تثبيت</b>':'Tap <b>Install</b>'}</li>
+            </ol>
+        </div>`;
+    } else if(isIOS){
+        guideHtml=`<div class="android-install-highlight" style="border-color:var(--cyan);">
+            <h4 style="color:var(--cyan);">🍎 ${ar?'خطوات iOS':'iOS Steps'}</h4>
+            <ol>
+                <li>${ar?'افتح في <b>Safari</b>':'Open in <b>Safari</b>'}</li>
+                <li>${ar?'اضغط <b>□↑</b>':'Tap <b>□↑</b>'}</li>
+                <li>${ar?'<span class="highlight">إضافة إلى الشاشة الرئيسية</span>':'<span class="highlight">Add to Home Screen</span>'}</li>
+                <li>${ar?'اضغط <b>إضافة</b>':'Tap <b>Add</b>'}</li>
+            </ol>
+        </div>`;
+    } else {
+        guideHtml=`<div class="android-install-highlight" style="border-color:var(--blue);">
+            <h4 style="color:var(--blue);">🖥️ ${ar?'كمبيوتر':'Desktop'}</h4>
+            <ol>
+                <li>${ar?'افتح في Chrome/Edge':'Open in Chrome/Edge'}</li>
+                <li>${ar?'أيقونة ⊕ في العنوان':'⊕ in address bar'}</li>
+            </ol>
+        </div>`;
+    }
+    openModal(`<h3>📲 ${ar?'تثبيت التطبيق':'Install'}</h3>${statusHtml}${guideHtml}
+        <button class="big-action-btn" onclick="closeModal()" style="margin-top:15px;background:linear-gradient(135deg,#07596a,#0a3a5c);">✅ ${ar?'فهمت':'Got it'}</button>`);
+}
+async function attemptAutoInstall(){
+    if(!deferredPrompt){showNotification('❌ غير متاح');return;}
+    try{
+        deferredPrompt.prompt();
+        const{outcome}=await deferredPrompt.userChoice;
+        if(outcome==='accepted'){showNotification('🎉 تم التثبيت!');unlockAch('installer');closeModal();}
+        deferredPrompt=null;
+    }catch(e){showNotification('❌',true);}
+}
+function installPWA(){openInstallGuide();}
+function launchApp(){playSoundEffect('levelup');runSimulation({quiet:false});window.scrollTo({top:0,behavior:'smooth'});showNotification('✅');}
+function showQRCode(){
+    const ar=currentLang==='ar';
+    const qr=`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(APP_URL)}&bgcolor=ffffff&color=07111f`;
+    openModal(`<h3 style="text-align:center;">📱 QR</h3>
+        <div class="qr-container">
+            <div class="qr-canvas-wrapper"><img src="${qr}" style="width:240px;height:240px;display:block;" crossorigin="anonymous"></div>
+            <div class="qr-url">${APP_URL}</div>
+        </div>
+        <div class="qr-actions">
+            <button class="btn cyan" onclick="copyToClipboard('${APP_URL}')">📋</button>
+            <button class="btn gray" onclick="closeModal()">✖</button>
+        </div>`);
+}
+async function downloadApp(){
+    try{
+        const res=await fetch(location.href);const html=await res.text();
+        const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+        const url=URL.createObjectURL(blob);const a=document.createElement('a');
+        a.href=url;a.download='world-lab.html';a.click();URL.revokeObjectURL(url);
+        showNotification('✅');
+    }catch(e){
+        const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+        const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+        const url=URL.createObjectURL(blob);const a=document.createElement('a');
+        a.href=url;a.download='world-lab.html';a.click();URL.revokeObjectURL(url);
+    }
+}
+function requestNotificationPermission(){
+    if(!('Notification' in window)){showNotification('❌',true);return;}
+    Notification.requestPermission().then(p=>{
+        if(p==='granted'){
+            new Notification('🌍 الأمل الأخير للأرض',{body:'✅ الإشعارات تعمل!'});
+            showNotification('✅');
+        }else showNotification('❌',true);
+    });
+}
+
+/* ═══ HELPERS ═══ */
+function showNotification(msg,isErr){
+    const n=document.getElementById('notification');
+    n.textContent=msg;
+    n.className='notification show'+(isErr?' error':'');
+    clearTimeout(n._timeout);
+    n._timeout=setTimeout(()=>n.classList.remove('show'),2500);
+}
+function openModal(html){document.getElementById('modalContent').innerHTML=html;document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+function escapeHtml(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+/* ═══ LANGUAGE ═══ */
+function setLanguage(lang){
+    currentLang=lang;
+    localStorage.setItem('worldLabLang',lang);
+    const info={ar:{flag:'🇸🇦',name:'عربي',dir:'rtl'},en:{flag:'🇬🇧',name:'English',dir:'ltr'}}[lang];
+    document.documentElement.lang=lang;
+    document.documentElement.dir=info.dir;
+    document.body.dir=info.dir;
+    document.getElementById('currentLangFlag').textContent=info.flag;
+    document.getElementById('currentLangName').textContent=info.name;
+    document.querySelectorAll('.lang-menu-item').forEach((i,idx)=>i.classList.toggle('active',(lang==='ar'&&idx===0)||(lang==='en'&&idx===1)));
+    const t=TRANSLATIONS[lang];
+    Object.keys(t).forEach(k=>{const el=document.getElementById(k);if(el){if(k==='headerTitle'||k==='footerText')el.innerHTML=t[k];else el.textContent=t[k];}});
+    runSimulation();renderComparison();renderWorldMap();renderGlobalStats();
+    closeLangMenu();showNotification('✅ '+info.name);unlockAch('polyglot');
+}
+function toggleLangMenu(e){if(e)e.stopPropagation();document.getElementById('langMenu').classList.toggle('show');}
+function closeLangMenu(){document.getElementById('langMenu').classList.remove('show');}
+document.addEventListener('click',(e)=>{if(!e.target.closest('.lang-switch'))closeLangMenu();});
+
+/* ═══ EYES ═══ */
+function initEyes(){
+    document.addEventListener('mousemove',(e)=>{mouseX=e.clientX;mouseY=e.clientY;moveEyes();});
+    document.addEventListener('touchmove',(e)=>{if(e.touches[0]){mouseX=e.touches[0].clientX;mouseY=e.touches[0].clientY;moveEyes();}},{passive:true});
+    moveEyes();
+}
+function moveEyes(){
+    const li=document.getElementById('leftIris'),ri=document.getElementById('rightIris');
+    const le=document.getElementById('leftEye'),re=document.getElementById('rightEye');
+    if(!li||!ri)return;
+    const lr=le.getBoundingClientRect(),rr=re.getBoundingClientRect();
+    const mm=18;
+    const lCx=lr.left+lr.width/2,lCy=lr.top+lr.height/2;
+    let lDx=mouseX-lCx,lDy=mouseY-lCy;
+    const lD=Math.sqrt(lDx*lDx+lDy*lDy),lS=Math.min(mm,lD*0.15)/Math.max(lD,1);
+    li.style.transform=`translate(${lDx*lS}px, ${lDy*lS}px)`;
+    const rCx=rr.left+rr.width/2,rCy=rr.top+rr.height/2;
+    let rDx=mouseX-rCx,rDy=mouseY-rCy;
+    const rD=Math.sqrt(rDx*rDx+rDy*rDy),rS=Math.min(mm,rD*0.15)/Math.max(rD,1);
+    ri.style.transform=`translate(${rDx*rS}px, ${rDy*rS}px)`;
+}
+
+/* ═══ PWA ═══ */
+function createManifest(){
+    const manifest={name:"الأمل الأخير للأرض — مختبر العالم",short_name:"World Lab",start_url:".",scope:".",display:"standalone",background_color:"#07111f",theme_color:"#07111f",lang:"ar",dir:"rtl",categories:["education","games"],icons:[
+        {src:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48Y2lyY2xlIGN4PSI5NiIgY3k9Ijk2IiByPSI5NiIgZmlsbD0iIzA3MTExZiIvPjxjaXJjbGUgY3g9Ijk2IiBjeT0iOTYiIHI9IjcyIiBmaWxsPSIjMWE3YzNlIi8+PC9zdmc+",sizes:"192x192",type:"image/svg+xml",purpose:"any maskable"},
+        {src:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI1NiIgZmlsbD0iIzA3MTExZiIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTkyIiBmaWxsPSIjMWE3YzNlIi8+PC9zdmc+",sizes:"512x512",type:"image/svg+xml",purpose:"any maskable"}
+    ]};
+    const blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+    const url=URL.createObjectURL(blob);const l=document.createElement('link');
+    l.rel='manifest';l.href=url;document.head.appendChild(l);
+}
+async function registerSW(){
+    if(!('serviceWorker' in navigator))return null;
+    const sw=`const C='world-lab-v16';
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['./','./index.html']).catch(()=>{})));self.skipWaiting();});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))));return self.clients.claim();});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==self.location.origin){e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));return;}e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{if(r&&r.status===200)caches.open(C).then(cache=>cache.put(e.request,r.clone()));return r;}).catch(()=>c)));});
+self.addEventListener('notificationclick',e=>{e.notification.close();e.waitUntil(clients.openWindow('./'));});`;
+    const blob=new Blob([sw],{type:'application/javascript'});
+    const url=URL.createObjectURL(blob);
+    try{if(location.protocol==='file:')return null;const r=await navigator.serviceWorker.register(url,{scope:'./'});swRegistration=r;return r;}catch(e){return null;}
+}
+window.addEventListener('beforeinstallprompt',(e)=>{
+    e.preventDefault();deferredPrompt=e;
+    console.log('✅ beforeinstallprompt captured');
+    showNotification('⚡ التثبيت متاح! اضغط 📲');
+});
+window.addEventListener('appinstalled',()=>{
+    unlockAch('installer');
+    showNotification('🎉 تم تثبيت التطبيق!');
+    deferredPrompt=null;
+});
+
+/* ═══ INIT ═══ */
+window.addEventListener('load',async()=>{
+    renderReferences();
+    renderAchievements();
+    runSimulation();
+    renderWorldMap();
+    renderGlobalStats();
+    renderChallenges();
+    renderLeaderboard();
+    renderTrophy();
+    if(playerName)document.getElementById('playerNameInput').value=playerName;
+    initEyes();
+    createManifest();
+    await registerSW();
+    const isMobile=/Android|iPhone|iPad/i.test(navigator.userAgent);
+    const shownInstall=localStorage.getItem('worldLabShownInstall');
+    if(isMobile&&!shownInstall&&!window.matchMedia('(display-mode: standalone)').matches){
+        setTimeout(()=>{
+            localStorage.setItem('worldLabShownInstall','true');
+            openInstallGuide();
+        },3000);
+    }
+    console.log('🌍 World Lab v16.0 Loaded');
+});
+document.addEventListener('keydown',(e)=>{
+    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key==='Q'){e.preventDefault();showQRCode();}
+    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key==='A'){e.preventDefault();openAdminPanel();}
+});
+</script>
+</body>
+</html>
